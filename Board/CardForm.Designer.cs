@@ -34,13 +34,13 @@ namespace Board
             this.topPanel = new System.Windows.Forms.Panel();
             this.cardNameTextBox = new System.Windows.Forms.TextBox();
             this.cardNamePictureBox = new System.Windows.Forms.PictureBox();
-            this.exitButton = new MyCustomControl.RoundedButton();
             this.descriptionPanel = new System.Windows.Forms.Panel();
-            this.roundedLabel1 = new MyCustomControl.RoundedLabel();
             this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.descriptionPictureBox = new System.Windows.Forms.PictureBox();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.BodyPanel = new System.Windows.Forms.Panel();
+            this.roundedLabel1 = new MyCustomControl.RoundedLabel();
+            this.exitButton = new MyCustomControl.RoundedButton();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cardNamePictureBox)).BeginInit();
             this.descriptionPanel.SuspendLayout();
@@ -77,25 +77,6 @@ namespace Board
             this.cardNamePictureBox.TabIndex = 1;
             this.cardNamePictureBox.TabStop = false;
             // 
-            // exitButton
-            // 
-            this.exitButton.ButtonColor = System.Drawing.SystemColors.Control;
-            this.exitButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.exitButton.FlatAppearance.BorderSize = 0;
-            this.exitButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
-            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.IsEllipse = true;
-            this.exitButton.Location = new System.Drawing.Point(784, 3);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.OnHoverButtonColor = System.Drawing.Color.LightGray;
-            this.exitButton.RoundedRadius = 21;
-            this.exitButton.Size = new System.Drawing.Size(39, 37);
-            this.exitButton.TabIndex = 0;
-            this.exitButton.Text = "X";
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
             // descriptionPanel
             // 
             this.descriptionPanel.AutoSize = true;
@@ -106,19 +87,6 @@ namespace Board
             this.descriptionPanel.Name = "descriptionPanel";
             this.descriptionPanel.Size = new System.Drawing.Size(673, 147);
             this.descriptionPanel.TabIndex = 2;
-            // 
-            // roundedLabel1
-            // 
-            this.roundedLabel1.AutoSize = true;
-            this.roundedLabel1.BackColor = System.Drawing.SystemColors.Control;
-            this.roundedLabel1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedLabel1.LabelColor = System.Drawing.Color.LightGray;
-            this.roundedLabel1.Location = new System.Drawing.Point(57, 3);
-            this.roundedLabel1.Name = "roundedLabel1";
-            this.roundedLabel1.RoundedRadius = 9;
-            this.roundedLabel1.Size = new System.Drawing.Size(125, 30);
-            this.roundedLabel1.TabIndex = 5;
-            this.roundedLabel1.Text = "Description";
             // 
             // descriptionRichTextBox
             // 
@@ -166,6 +134,38 @@ namespace Board
             this.BodyPanel.Name = "BodyPanel";
             this.BodyPanel.Size = new System.Drawing.Size(824, 537);
             this.BodyPanel.TabIndex = 3;
+            // 
+            // roundedLabel1
+            // 
+            this.roundedLabel1.AutoSize = true;
+            this.roundedLabel1.BackColor = System.Drawing.SystemColors.Control;
+            this.roundedLabel1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedLabel1.LabelColor = System.Drawing.Color.Silver;
+            this.roundedLabel1.Location = new System.Drawing.Point(57, 3);
+            this.roundedLabel1.Name = "roundedLabel1";
+            this.roundedLabel1.RoundedRadius = 9;
+            this.roundedLabel1.Size = new System.Drawing.Size(125, 30);
+            this.roundedLabel1.TabIndex = 5;
+            this.roundedLabel1.Text = "Description";
+            // 
+            // exitButton
+            // 
+            this.exitButton.ButtonColor = System.Drawing.SystemColors.Control;
+            this.exitButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.exitButton.FlatAppearance.BorderSize = 0;
+            this.exitButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.IsEllipse = true;
+            this.exitButton.Location = new System.Drawing.Point(784, 3);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.OnHoverButtonColor = System.Drawing.Color.LightGray;
+            this.exitButton.RoundedRadius = 21;
+            this.exitButton.Size = new System.Drawing.Size(39, 37);
+            this.exitButton.TabIndex = 0;
+            this.exitButton.Text = "X";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // CardForm
             // 
