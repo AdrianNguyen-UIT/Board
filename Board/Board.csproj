@@ -59,6 +59,12 @@
     <Compile Include="CardForm.Designer.cs">
       <DependentUpon>CardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DescriptionUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DescriptionUserControl.Designer.cs">
+      <DependentUpon>DescriptionUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lists.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     </Compile>
     <EmbeddedResource Include="CardForm.resx">
       <DependentUpon>CardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DescriptionUserControl.resx">
+      <DependentUpon>DescriptionUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

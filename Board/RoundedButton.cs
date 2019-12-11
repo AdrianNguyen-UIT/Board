@@ -20,6 +20,7 @@ namespace MyCustomControl
         public RoundedButton()
         {
             DoubleBuffered = true;
+            FlatStyle = FlatStyle.Flat;
             MouseEnter += RoundedButton_MouseEnter;
             MouseLeave += RoundedButton_MouseLeave;
 

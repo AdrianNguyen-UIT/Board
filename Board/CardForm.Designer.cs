@@ -34,17 +34,12 @@ namespace Board
             this.topPanel = new System.Windows.Forms.Panel();
             this.cardNameTextBox = new System.Windows.Forms.TextBox();
             this.cardNamePictureBox = new System.Windows.Forms.PictureBox();
-            this.descriptionPanel = new System.Windows.Forms.Panel();
-            this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.descriptionPictureBox = new System.Windows.Forms.PictureBox();
+            this.exitButton = new MyCustomControl.RoundedButton();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.BodyPanel = new System.Windows.Forms.Panel();
-            this.roundedLabel1 = new MyCustomControl.RoundedLabel();
-            this.exitButton = new MyCustomControl.RoundedButton();
+            this.descriptionUserControl1 = new Board.DescriptionUserControl();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cardNamePictureBox)).BeginInit();
-            this.descriptionPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.descriptionPictureBox)).BeginInit();
             this.mainPanel.SuspendLayout();
             this.BodyPanel.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +56,7 @@ namespace Board
             // 
             // cardNameTextBox
             // 
+            this.cardNameTextBox.BackColor = System.Drawing.Color.White;
             this.cardNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cardNameTextBox.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cardNameTextBox.Location = new System.Drawing.Point(62, 20);
@@ -76,77 +72,6 @@ namespace Board
             this.cardNamePictureBox.Size = new System.Drawing.Size(38, 36);
             this.cardNamePictureBox.TabIndex = 1;
             this.cardNamePictureBox.TabStop = false;
-            // 
-            // descriptionPanel
-            // 
-            this.descriptionPanel.AutoSize = true;
-            this.descriptionPanel.Controls.Add(this.roundedLabel1);
-            this.descriptionPanel.Controls.Add(this.descriptionRichTextBox);
-            this.descriptionPanel.Controls.Add(this.descriptionPictureBox);
-            this.descriptionPanel.Location = new System.Drawing.Point(2, 109);
-            this.descriptionPanel.Name = "descriptionPanel";
-            this.descriptionPanel.Size = new System.Drawing.Size(673, 147);
-            this.descriptionPanel.TabIndex = 2;
-            // 
-            // descriptionRichTextBox
-            // 
-            this.descriptionRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.descriptionRichTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionRichTextBox.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.descriptionRichTextBox.Location = new System.Drawing.Point(59, 43);
-            this.descriptionRichTextBox.MaximumSize = new System.Drawing.Size(600, 500);
-            this.descriptionRichTextBox.MinimumSize = new System.Drawing.Size(600, 79);
-            this.descriptionRichTextBox.Name = "descriptionRichTextBox";
-            this.descriptionRichTextBox.RightMargin = 600;
-            this.descriptionRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.descriptionRichTextBox.Size = new System.Drawing.Size(600, 79);
-            this.descriptionRichTextBox.TabIndex = 4;
-            this.descriptionRichTextBox.Text = "Describe this card...";
-            this.descriptionRichTextBox.WordWrap = false;
-            this.descriptionRichTextBox.ContentsResized += new System.Windows.Forms.ContentsResizedEventHandler(this.richTextBox1_ContentsResized);
-            this.descriptionRichTextBox.Enter += new System.EventHandler(this.descriptionRichTextBox_Enter);
-            this.descriptionRichTextBox.Leave += new System.EventHandler(this.descriptionRichTextBox_Leave);
-            // 
-            // descriptionPictureBox
-            // 
-            this.descriptionPictureBox.BackColor = System.Drawing.Color.Aqua;
-            this.descriptionPictureBox.Location = new System.Drawing.Point(6, 3);
-            this.descriptionPictureBox.Name = "descriptionPictureBox";
-            this.descriptionPictureBox.Size = new System.Drawing.Size(38, 37);
-            this.descriptionPictureBox.TabIndex = 2;
-            this.descriptionPictureBox.TabStop = false;
-            // 
-            // mainPanel
-            // 
-            this.mainPanel.Controls.Add(this.BodyPanel);
-            this.mainPanel.Controls.Add(this.topPanel);
-            this.mainPanel.Location = new System.Drawing.Point(0, 0);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(830, 600);
-            this.mainPanel.TabIndex = 3;
-            // 
-            // BodyPanel
-            // 
-            this.BodyPanel.AutoScroll = true;
-            this.BodyPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BodyPanel.Controls.Add(this.descriptionPanel);
-            this.BodyPanel.Location = new System.Drawing.Point(3, 60);
-            this.BodyPanel.Name = "BodyPanel";
-            this.BodyPanel.Size = new System.Drawing.Size(824, 537);
-            this.BodyPanel.TabIndex = 3;
-            // 
-            // roundedLabel1
-            // 
-            this.roundedLabel1.AutoSize = true;
-            this.roundedLabel1.BackColor = System.Drawing.SystemColors.Control;
-            this.roundedLabel1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundedLabel1.LabelColor = System.Drawing.Color.Silver;
-            this.roundedLabel1.Location = new System.Drawing.Point(57, 3);
-            this.roundedLabel1.Name = "roundedLabel1";
-            this.roundedLabel1.RoundedRadius = 9;
-            this.roundedLabel1.Size = new System.Drawing.Size(125, 30);
-            this.roundedLabel1.TabIndex = 5;
-            this.roundedLabel1.Text = "Description";
             // 
             // exitButton
             // 
@@ -167,6 +92,33 @@ namespace Board
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // mainPanel
+            // 
+            this.mainPanel.Controls.Add(this.BodyPanel);
+            this.mainPanel.Controls.Add(this.topPanel);
+            this.mainPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(830, 600);
+            this.mainPanel.TabIndex = 3;
+            // 
+            // BodyPanel
+            // 
+            this.BodyPanel.AutoScroll = true;
+            this.BodyPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BodyPanel.Controls.Add(this.descriptionUserControl1);
+            this.BodyPanel.Location = new System.Drawing.Point(3, 60);
+            this.BodyPanel.Name = "BodyPanel";
+            this.BodyPanel.Size = new System.Drawing.Size(824, 537);
+            this.BodyPanel.TabIndex = 3;
+            // 
+            // descriptionUserControl1
+            // 
+            this.descriptionUserControl1.BackColor = System.Drawing.SystemColors.Control;
+            this.descriptionUserControl1.Location = new System.Drawing.Point(2, 58);
+            this.descriptionUserControl1.Name = "descriptionUserControl1";
+            this.descriptionUserControl1.Size = new System.Drawing.Size(676, 122);
+            this.descriptionUserControl1.TabIndex = 0;
+            // 
             // CardForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -183,12 +135,8 @@ namespace Board
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cardNamePictureBox)).EndInit();
-            this.descriptionPanel.ResumeLayout(false);
-            this.descriptionPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.descriptionPictureBox)).EndInit();
             this.mainPanel.ResumeLayout(false);
             this.BodyPanel.ResumeLayout(false);
-            this.BodyPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -199,12 +147,9 @@ namespace Board
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.TextBox cardNameTextBox;
         private System.Windows.Forms.PictureBox cardNamePictureBox;
-        private System.Windows.Forms.Panel descriptionPanel;
-        private System.Windows.Forms.RichTextBox descriptionRichTextBox;
-        private System.Windows.Forms.PictureBox descriptionPictureBox;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Panel BodyPanel;
-        private MyCustomControl.RoundedLabel roundedLabel1;
+        private DescriptionUserControl descriptionUserControl1;
     }
 }
 
