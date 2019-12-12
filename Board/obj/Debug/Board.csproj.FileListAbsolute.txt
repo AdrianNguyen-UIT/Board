@@ -18,3 +18,13 @@ C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\Board.exe
 C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\Board.pdb
 C:\Users\Admin\source\repos\BoardApp\Board\obj\Debug\Board.DescriptionUserControl.resources
 C:\Users\Admin\source\repos\BoardApp\Board\obj\Debug\Board.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\BoardApp\Board\bin\Debug\Board.exe.config
+C:\Users\Admin\Desktop\BoardApp\Board\bin\Debug\Board.exe
+C:\Users\Admin\Desktop\BoardApp\Board\bin\Debug\Board.pdb
+C:\Users\Admin\Desktop\BoardApp\Board\obj\Debug\Board.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\BoardApp\Board\obj\Debug\Board.CardForm.resources
+C:\Users\Admin\Desktop\BoardApp\Board\obj\Debug\Board.DescriptionUserControl.resources
+C:\Users\Admin\Desktop\BoardApp\Board\obj\Debug\Board.Properties.Resources.resources
+C:\Users\Admin\Desktop\BoardApp\Board\obj\Debug\Board.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\BoardApp\Board\obj\Debug\Board.exe
+C:\Users\Admin\Desktop\BoardApp\Board\obj\Debug\Board.pdb

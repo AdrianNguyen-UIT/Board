@@ -59,10 +59,10 @@
     <Compile Include="CardForm.Designer.cs">
       <DependentUpon>CardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DescriptionUserControl.cs">
+    <Compile Include="CardFormComponent\DescriptionUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DescriptionUserControl.Designer.cs">
+    <Compile Include="CardFormComponent\DescriptionUserControl.Designer.cs">
       <DependentUpon>DescriptionUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Lists.cs">
@@ -79,17 +79,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoundedButton.cs">
+    <Compile Include="MyCustomControl\RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RoundedDrawing.cs" />
-    <Compile Include="RoundedLabel.cs">
+    <Compile Include="MyCustomControl\RoundedDrawing.cs" />
+    <Compile Include="MyCustomControl\RoundedLabel.cs">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="CardForm.resx">
       <DependentUpon>CardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DescriptionUserControl.resx">
+    <EmbeddedResource Include="CardFormComponent\DescriptionUserControl.resx">
       <DependentUpon>DescriptionUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
