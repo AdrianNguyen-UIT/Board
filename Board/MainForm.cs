@@ -24,11 +24,11 @@ namespace Board
         {
             this.BoardListPanel = new System.Windows.Forms.Panel();
             this.ButtonAddBoard = new System.Windows.Forms.Button();
-            this.LBBoard = new System.Windows.Forms.Label();
             this.DeleteButton = new System.Windows.Forms.Button();
+            this.LBBoard = new System.Windows.Forms.Label();
             this.MinimizeButton = new System.Windows.Forms.Button();
-            this.ListListPanel = new System.Windows.Forms.Panel();
             this.ButtonAddList = new System.Windows.Forms.Button();
+            this.ListListPanel = new System.Windows.Forms.Panel();
             this.BoardListPanel.SuspendLayout();
             this.ListListPanel.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +49,7 @@ namespace Board
             // ButtonAddBoard
             // 
             this.ButtonAddBoard.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddBoard.Location = new System.Drawing.Point(60, 47);
+            this.ButtonAddBoard.Location = new System.Drawing.Point(70, 47);
             this.ButtonAddBoard.Name = "ButtonAddBoard";
             this.ButtonAddBoard.Size = new System.Drawing.Size(75, 73);
             this.ButtonAddBoard.TabIndex = 1;
@@ -57,20 +57,9 @@ namespace Board
             this.ButtonAddBoard.UseVisualStyleBackColor = true;
             this.ButtonAddBoard.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
-            // LBBoard
-            // 
-            this.LBBoard.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.LBBoard.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBBoard.Location = new System.Drawing.Point(9, 7);
-            this.LBBoard.Name = "LBBoard";
-            this.LBBoard.Size = new System.Drawing.Size(147, 37);
-            this.LBBoard.TabIndex = 0;
-            this.LBBoard.Text = "Board";
-            this.LBBoard.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(162, 46);
+            this.DeleteButton.Location = new System.Drawing.Point(3, 10);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(46, 33);
             this.DeleteButton.TabIndex = 2;
@@ -78,26 +67,27 @@ namespace Board
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
+            // LBBoard
+            // 
+            this.LBBoard.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.LBBoard.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBBoard.Location = new System.Drawing.Point(50, 7);
+            this.LBBoard.Name = "LBBoard";
+            this.LBBoard.Size = new System.Drawing.Size(95, 37);
+            this.LBBoard.TabIndex = 0;
+            this.LBBoard.Text = "Board";
+            this.LBBoard.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MinimizeButton
             // 
             this.MinimizeButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinimizeButton.Location = new System.Drawing.Point(162, 7);
+            this.MinimizeButton.Location = new System.Drawing.Point(151, 7);
             this.MinimizeButton.Name = "MinimizeButton";
             this.MinimizeButton.Size = new System.Drawing.Size(37, 33);
             this.MinimizeButton.TabIndex = 3;
             this.MinimizeButton.Text = "◁";
             this.MinimizeButton.UseVisualStyleBackColor = true;
             this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
-            // 
-            // ListListPanel
-            // 
-            this.ListListPanel.AutoScroll = true;
-            this.ListListPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.ListListPanel.Controls.Add(this.ButtonAddList);
-            this.ListListPanel.Location = new System.Drawing.Point(220, 0);
-            this.ListListPanel.Name = "ListListPanel";
-            this.ListListPanel.Size = new System.Drawing.Size(648, 534);
-            this.ListListPanel.TabIndex = 4;
             // 
             // ButtonAddList
             // 
@@ -109,6 +99,16 @@ namespace Board
             this.ButtonAddList.Text = "+";
             this.ButtonAddList.UseVisualStyleBackColor = true;
             this.ButtonAddList.Click += new System.EventHandler(this.ButtonAddList_Click);
+            // 
+            // ListListPanel
+            // 
+            this.ListListPanel.AutoScroll = true;
+            this.ListListPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.ListListPanel.Controls.Add(this.ButtonAddList);
+            this.ListListPanel.Location = new System.Drawing.Point(220, 0);
+            this.ListListPanel.Name = "ListListPanel";
+            this.ListListPanel.Size = new System.Drawing.Size(648, 534);
+            this.ListListPanel.TabIndex = 4;
             // 
             // form1
             // 
@@ -123,7 +123,6 @@ namespace Board
             this.BoardListPanel.ResumeLayout(false);
             this.ListListPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
         public MainForm()
         {
@@ -155,6 +154,7 @@ namespace Board
             ListListPanel.Controls.Add(ButtonAddList);
             for (int i = 0; i < (sender as Boards).list.Count; i++)
             {
+                (sender as Boards).list[i].Location = new Point(13 + 205 * i, 0);
                 ListListPanel.Controls.Add((sender as Boards).list[i]);
             }
         }
@@ -233,8 +233,31 @@ namespace Board
             ButtonAddList.Location = new Point(ButtonAddList.Location.X + 205, ButtonAddList.Location.Y);
             Lists NewList = new Lists();
             NewList.Location = new Point(ButtonAddList.Location.X - 205, 0);
+            NewList.Deleted += NewList_Deleted;
             ListListPanel.Controls.Add(NewList);
             listBoards[Locate].list.Add(NewList);
+        }
+
+        private void NewList_Deleted(object sender, EventArgs e)
+        {
+            Lists uc = sender as Lists;
+            int Locate = -1;
+            for (int i = 0; i < listBoards.Count; i++)
+            {
+                if (listBoards[i].BackColor == Color.LightBlue)
+                {
+                    Locate = i;
+                    break;
+                }
+            }
+            int listLocate = listBoards[Locate].list.IndexOf(uc);
+            listBoards[Locate].list.Remove(uc);
+            ListListPanel.Controls.Remove(uc);
+            for (int i = listLocate; i < (listBoards[Locate]).list.Count; i++)
+            {
+                listBoards[Locate].list[i].Location = new Point(listBoards[Locate].list[i].Location.X - 205, 0);
+            }
+            ButtonAddList.Location = new Point(ButtonAddList.Location.X - 205, 229);
         }
     }
 }

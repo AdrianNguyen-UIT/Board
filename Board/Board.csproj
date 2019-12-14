@@ -53,6 +53,12 @@
     <Compile Include="Boards.Designer.cs">
       <DependentUpon>Boards.cs</DependentUpon>
     </Compile>
+    <Compile Include="Card.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Card.Designer.cs">
+      <DependentUpon>Card.cs</DependentUpon>
+    </Compile>
     <Compile Include="CardForm.cs">
       <SubType>Form</SubType>
     </Compile>

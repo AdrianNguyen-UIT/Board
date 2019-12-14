@@ -28,3 +28,14 @@ C:\Users\Admin\Desktop\BoardApp\Board\obj\Debug\Board.Properties.Resources.resou
 C:\Users\Admin\Desktop\BoardApp\Board\obj\Debug\Board.csproj.GenerateResource.cache
 C:\Users\Admin\Desktop\BoardApp\Board\obj\Debug\Board.exe
 C:\Users\Admin\Desktop\BoardApp\Board\obj\Debug\Board.pdb
+C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\bin\Debug\Board.exe.config
+C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\bin\Debug\Board.exe
+C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\bin\Debug\Board.pdb
+C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\obj\Debug\Board.csprojAssemblyReference.cache
+C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\obj\Debug\Board.CardForm.resources
+C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\obj\Debug\Board.DescriptionUserControl.resources
+C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\obj\Debug\Board.Properties.Resources.resources
+C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\obj\Debug\Board.csproj.GenerateResource.cache
+C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\obj\Debug\Board.csproj.CoreCompileInputs.cache
+C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\obj\Debug\Board.exe
+C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\obj\Debug\Board.pdb
