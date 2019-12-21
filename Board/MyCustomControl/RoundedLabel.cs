@@ -11,21 +11,16 @@ namespace MyCustomControl
 {
     class RoundedLabel : Label
     {
-        private int roundedRadius = 10;
-        Color labelColor = Color.Gray;
-
-        public RoundedLabel()
-        {
-            DoubleBuffered = true;
-        }
+        Color labelColor;
+        int roundedRadius = 10;
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
             base.OnPaint(pevent);
             Graphics g = pevent.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
-            Brush brush = new SolidBrush(labelColor);
 
+            Brush brush = new SolidBrush(labelColor);
             RoundedDrawing.FillRoundedRectangle(g, brush, new Rectangle(0, 0, Width, Height), roundedRadius);
 
             SizeF stringSize = g.MeasureString(Text, Font);
