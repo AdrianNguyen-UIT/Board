@@ -15,12 +15,12 @@ namespace MyCustomControl
         private Color buttonColor = Color.White;
         private Color onHoverButtonColor = Color.Gray;
         private int roundedRadius = 10;
-        private bool isEllipse = false;
 
         public RoundedButton()
         {
             DoubleBuffered = true;
             FlatStyle = FlatStyle.Flat;
+            FlatAppearance.BorderSize = 0;
             MouseEnter += RoundedButton_MouseEnter;
             MouseLeave += RoundedButton_MouseLeave;
 
@@ -45,14 +45,7 @@ namespace MyCustomControl
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
             Brush brush = new SolidBrush(isHovering ? onHoverButtonColor : buttonColor);
-            if (!isEllipse)
-            {
-                RoundedDrawing.FillRoundedRectangle(g, brush, new Rectangle(0, 0, Width, Height), roundedRadius);
-            }
-            else
-            {
-                g.FillEllipse(brush, new Rectangle(0, 0, Width, Height));
-            }
+            RoundedDrawing.FillRoundedRectangle(g, brush, new Rectangle(0, 0, Width, Height), roundedRadius);
 
             SizeF stringSize = g.MeasureString(Text, Font);
             g.DrawString(Text, Font, new SolidBrush(ForeColor), (Width - stringSize.Width) / 2, (Height - stringSize.Height) / 2);
@@ -88,17 +81,5 @@ namespace MyCustomControl
                 Invalidate();
             }
         }
-
-        public bool IsEllipse
-        {
-            get => isEllipse;
-            set
-            {
-                isEllipse = value;
-                Invalidate();
-            }
-        }
-
-       
     }
 }

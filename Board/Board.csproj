@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{976645C5-3933-4571-8D9A-C3F386EDF7DC}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>Board</RootNamespace>
     <AssemblyName>Board</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -33,7 +33,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Control.Draggable, Version=1.0.5049.269, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Control.Draggable.1.0.5049.269\lib\net35-Client\Control.Draggable.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,35 +53,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Boards.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Boards.Designer.cs">
-      <DependentUpon>Boards.cs</DependentUpon>
-    </Compile>
     <Compile Include="CardForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CardForm.Designer.cs">
       <DependentUpon>CardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CardFormComponent\DescriptionUserControl.cs">
+    <Compile Include="MyCustomControl\CheckListItemUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CardFormComponent\DescriptionUserControl.Designer.cs">
+    <Compile Include="MyCustomControl\CheckListItemUserControl.Designer.cs">
+      <DependentUpon>CheckListItemUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyCustomControl\CheckListUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyCustomControl\CheckListUserControl.Designer.cs">
+      <DependentUpon>CheckListUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyCustomControl\CircularButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyCustomControl\CustomRichTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyCustomControl\CustomRichTextBox.Designer.cs">
+      <DependentUpon>CustomRichTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyCustomControl\DescriptionUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyCustomControl\DescriptionUserControl.Designer.cs">
       <DependentUpon>DescriptionUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lists.cs">
+    <Compile Include="MyCustomControl\DueDateStateBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Lists.Designer.cs">
-      <DependentUpon>Lists.cs</DependentUpon>
+    <Compile Include="MyCustomControl\DueDateStateBar.Designer.cs">
+      <DependentUpon>DueDateStateBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="MyCustomControl\DueDateUserControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="MyCustomControl\DueDateUserControl.Designer.cs">
+      <DependentUpon>DueDateUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyCustomControl\RoundedProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyCustomControl\RoundedProgressBar.Designer.cs">
+      <DependentUpon>RoundedProgressBar.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,23 +116,42 @@
     <EmbeddedResource Include="CardForm.resx">
       <DependentUpon>CardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CardFormComponent\DescriptionUserControl.resx">
+    <EmbeddedResource Include="MyCustomControl\CheckListItemUserControl.resx">
+      <DependentUpon>CheckListItemUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyCustomControl\CheckListUserControl.resx">
+      <DependentUpon>CheckListUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyCustomControl\CustomRichTextBox.resx">
+      <DependentUpon>CustomRichTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyCustomControl\DescriptionUserControl.resx">
       <DependentUpon>DescriptionUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyCustomControl\DueDateStateBar.resx">
+      <DependentUpon>DueDateStateBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyCustomControl\DueDateUserControl.resx">
+      <DependentUpon>DueDateUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyCustomControl\RoundedProgressBar.resx">
+      <DependentUpon>RoundedProgressBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -114,6 +160,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Icons\BoardIcon16.png" />
+    <Content Include="Icons\BoardIcon24.png" />
+    <Content Include="Icons\BoardIcon32.png" />
+    <Content Include="Icons\CardIcon.png" />
+    <Content Include="Icons\CheckListIcon.png" />
+    <Content Include="Icons\CloseIcon32.png" />
+    <Content Include="Icons\CloseIcon16.png" />
+    <Content Include="Icons\CloseIcon24.png" />
+    <Content Include="Icons\DeleteIcon.png" />
+    <Content Include="Icons\DescriptionIcon.png" />
+    <Content Include="Icons\DueDateIcon.png" />
+    <Content Include="Icons\ListIcon16.png" />
+    <Content Include="Icons\ListIcon24.png" />
+    <Content Include="Icons\ListIcon32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

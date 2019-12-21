@@ -1,0 +1,8 @@
+DescriptionIcon: Icons made by Pixel perfect from www.flaticon.com
+Card: Icons made by Pixel perfect from www.flaticon.com
+Checklist: Icons made by Kiranshastry from www.flaticon.com
+DueDate: Icons made by Freepik from www.flaticon.com
+CloseIcon: Icons made by Freepik from www.flaticon.com
+DeleteIcon:Icons made by Kiranshastry from www.flaticon.com
+List: Icons made by Chanut from www.flaticon.com
+Board: Icons made by Freepik from www.flaticon.com

@@ -1,6 +1,6 @@
-﻿namespace Board
+﻿namespace MyCustomControl
 {
-    partial class Lists
+    partial class RoundedProgressBar
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,8 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.SuspendLayout();
+            // 
+            // RoundedProgressBar
+            // 
+            this.Name = "RoundedProgressBar";
+            this.Size = new System.Drawing.Size(227, 38);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
