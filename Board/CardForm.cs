@@ -210,7 +210,8 @@ namespace Board
         private void observeButton_Click(object sender, EventArgs e)
         {
             observePictureBox.Visible = !observePictureBox.Visible;
-            if(observePictureBox.Visible)
+            ObservationPIctureBox.Visible = !ObservationPIctureBox.Visible;
+            if (observePictureBox.Visible)
             {
                 isObserving = true;
             }

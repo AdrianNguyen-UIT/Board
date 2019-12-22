@@ -177,6 +177,9 @@
     <Content Include="Icons\ListIcon16.png" />
     <Content Include="Icons\ListIcon24.png" />
     <Content Include="Icons\ListIcon32.png" />
+    <Content Include="Icons\ObservationIcon16.png" />
+    <Content Include="Icons\ObservationIcon24.png" />
+    <Content Include="Icons\ObservationIcon32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

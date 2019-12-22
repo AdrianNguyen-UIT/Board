@@ -30,44 +30,46 @@
         {
             this.components = new System.ComponentModel.Container();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.exitButton = new MyCustomControl.CircularButton();
-            this.iconPictureBox = new System.Windows.Forms.PictureBox();
-            this.cardNameRichTextBox = new MyCustomControl.CustomRichTextBox();
             this.mainPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.informationPanel = new System.Windows.Forms.Panel();
             this.listLabel = new System.Windows.Forms.Label();
-            this.listPictureBox = new System.Windows.Forms.PictureBox();
             this.boardLabel = new System.Windows.Forms.Label();
-            this.boardPictureBox = new System.Windows.Forms.PictureBox();
             this.bodyPanel = new System.Windows.Forms.Panel();
             this.contentPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkListPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.descriptionPanel = new System.Windows.Forms.Panel();
-            this.descriptionUserControl = new MyCustomControl.DescriptionUserControl();
             this.dueDatePanel = new System.Windows.Forms.Panel();
+            this.checkListPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.featurePanel = new System.Windows.Forms.Panel();
             this.actionPanel = new System.Windows.Forms.Panel();
+            this.addFeaturePanel = new System.Windows.Forms.Panel();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.iconPictureBox = new System.Windows.Forms.PictureBox();
+            this.ObservationPIctureBox = new System.Windows.Forms.PictureBox();
+            this.listPictureBox = new System.Windows.Forms.PictureBox();
+            this.boardPictureBox = new System.Windows.Forms.PictureBox();
+            this.observePictureBox = new System.Windows.Forms.PictureBox();
+            this.exitButton = new MyCustomControl.CircularButton();
+            this.cardNameRichTextBox = new MyCustomControl.CustomRichTextBox();
+            this.descriptionUserControl = new MyCustomControl.DescriptionUserControl();
             this.actionLabel = new MyCustomControl.RoundedLabel();
             this.observeButton = new MyCustomControl.RoundedButton();
-            this.observePictureBox = new System.Windows.Forms.PictureBox();
-            this.addFeaturePanel = new System.Windows.Forms.Panel();
             this.addFeatureLabel = new MyCustomControl.RoundedLabel();
             this.addChecklistButton = new MyCustomControl.RoundedButton();
             this.addDueDateButton = new MyCustomControl.RoundedButton();
-            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.topPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
             this.mainPanel.SuspendLayout();
             this.informationPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boardPictureBox)).BeginInit();
             this.bodyPanel.SuspendLayout();
             this.contentPanel.SuspendLayout();
             this.descriptionPanel.SuspendLayout();
             this.featurePanel.SuspendLayout();
             this.actionPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.observePictureBox)).BeginInit();
             this.addFeaturePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ObservationPIctureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boardPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.observePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // topPanel
@@ -81,48 +83,8 @@
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Margin = new System.Windows.Forms.Padding(0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(902, 51);
+            this.topPanel.Size = new System.Drawing.Size(902, 45);
             this.topPanel.TabIndex = 0;
-            // 
-            // exitButton
-            // 
-            this.exitButton.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
-            this.exitButton.FlatAppearance.BorderSize = 0;
-            this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
-            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.Image = global::Board.Properties.Resources.CloseIcon24;
-            this.exitButton.Location = new System.Drawing.Point(857, 0);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(42, 42);
-            this.exitButton.TabIndex = 3;
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
-            // iconPictureBox
-            // 
-            this.iconPictureBox.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.iconPictureBox.Image = global::Board.Properties.Resources.CardIcon;
-            this.iconPictureBox.Location = new System.Drawing.Point(16, 3);
-            this.iconPictureBox.Name = "iconPictureBox";
-            this.iconPictureBox.Size = new System.Drawing.Size(32, 32);
-            this.iconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.iconPictureBox.TabIndex = 0;
-            this.iconPictureBox.TabStop = false;
-            // 
-            // cardNameRichTextBox
-            // 
-            this.cardNameRichTextBox.AutoSize = true;
-            this.cardNameRichTextBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.cardNameRichTextBox.BackgroundColor = System.Drawing.Color.Empty;
-            this.cardNameRichTextBox.ContentText = null;
-            this.cardNameRichTextBox.FoucesedRichTextBoxColor = System.Drawing.Color.Empty;
-            this.cardNameRichTextBox.Location = new System.Drawing.Point(78, 3);
-            this.cardNameRichTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cardNameRichTextBox.Name = "cardNameRichTextBox";
-            this.cardNameRichTextBox.NonFoucesedRichTextBoxColor = System.Drawing.Color.Empty;
-            this.cardNameRichTextBox.SaveButtonCommand = null;
-            this.cardNameRichTextBox.Size = new System.Drawing.Size(539, 44);
-            this.cardNameRichTextBox.TabIndex = 2;
             // 
             // mainPanel
             // 
@@ -136,18 +98,19 @@
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(902, 692);
+            this.mainPanel.Size = new System.Drawing.Size(902, 686);
             this.mainPanel.TabIndex = 0;
             // 
             // informationPanel
             // 
             this.informationPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.informationPanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.informationPanel.Controls.Add(this.ObservationPIctureBox);
             this.informationPanel.Controls.Add(this.listLabel);
             this.informationPanel.Controls.Add(this.listPictureBox);
             this.informationPanel.Controls.Add(this.boardLabel);
             this.informationPanel.Controls.Add(this.boardPictureBox);
-            this.informationPanel.Location = new System.Drawing.Point(0, 51);
+            this.informationPanel.Location = new System.Drawing.Point(0, 45);
             this.informationPanel.Margin = new System.Windows.Forms.Padding(0);
             this.informationPanel.Name = "informationPanel";
             this.informationPanel.Size = new System.Drawing.Size(902, 36);
@@ -160,20 +123,9 @@
             this.listLabel.Location = new System.Drawing.Point(111, 22);
             this.listLabel.Margin = new System.Windows.Forms.Padding(0);
             this.listLabel.Name = "listLabel";
-            this.listLabel.Size = new System.Drawing.Size(66, 19);
+            this.listLabel.Size = new System.Drawing.Size(53, 13);
             this.listLabel.TabIndex = 3;
             this.listLabel.Text = "ListName";
-            // 
-            // listPictureBox
-            // 
-            this.listPictureBox.Image = global::Board.Properties.Resources.ListIcon16;
-            this.listPictureBox.Location = new System.Drawing.Point(78, 19);
-            this.listPictureBox.Margin = new System.Windows.Forms.Padding(1);
-            this.listPictureBox.Name = "listPictureBox";
-            this.listPictureBox.Size = new System.Drawing.Size(16, 16);
-            this.listPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.listPictureBox.TabIndex = 1;
-            this.listPictureBox.TabStop = false;
             // 
             // boardLabel
             // 
@@ -182,20 +134,9 @@
             this.boardLabel.Location = new System.Drawing.Point(111, 4);
             this.boardLabel.Margin = new System.Windows.Forms.Padding(0);
             this.boardLabel.Name = "boardLabel";
-            this.boardLabel.Size = new System.Drawing.Size(81, 19);
+            this.boardLabel.Size = new System.Drawing.Size(66, 13);
             this.boardLabel.TabIndex = 2;
             this.boardLabel.Text = "BoardName";
-            // 
-            // boardPictureBox
-            // 
-            this.boardPictureBox.Image = global::Board.Properties.Resources.BoardIcon16;
-            this.boardPictureBox.Location = new System.Drawing.Point(78, 1);
-            this.boardPictureBox.Margin = new System.Windows.Forms.Padding(1);
-            this.boardPictureBox.Name = "boardPictureBox";
-            this.boardPictureBox.Size = new System.Drawing.Size(16, 16);
-            this.boardPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.boardPictureBox.TabIndex = 0;
-            this.boardPictureBox.TabStop = false;
             // 
             // bodyPanel
             // 
@@ -204,7 +145,7 @@
             this.bodyPanel.BackColor = System.Drawing.Color.Gainsboro;
             this.bodyPanel.Controls.Add(this.contentPanel);
             this.bodyPanel.Controls.Add(this.featurePanel);
-            this.bodyPanel.Location = new System.Drawing.Point(0, 87);
+            this.bodyPanel.Location = new System.Drawing.Point(0, 81);
             this.bodyPanel.Margin = new System.Windows.Forms.Padding(0);
             this.bodyPanel.Name = "bodyPanel";
             this.bodyPanel.Size = new System.Drawing.Size(900, 605);
@@ -226,6 +167,31 @@
             this.contentPanel.TabIndex = 0;
             this.contentPanel.WrapContents = false;
             // 
+            // descriptionPanel
+            // 
+            this.descriptionPanel.AutoSize = true;
+            this.descriptionPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.descriptionPanel.Controls.Add(this.descriptionUserControl);
+            this.descriptionPanel.Location = new System.Drawing.Point(10, 10);
+            this.descriptionPanel.Margin = new System.Windows.Forms.Padding(10, 10, 1, 10);
+            this.descriptionPanel.Name = "descriptionPanel";
+            this.descriptionPanel.Size = new System.Drawing.Size(702, 107);
+            this.descriptionPanel.TabIndex = 0;
+            this.descriptionPanel.SizeChanged += new System.EventHandler(this.descriptionPanel_SizeChanged);
+            this.descriptionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.descriptionPanel_Paint);
+            // 
+            // dueDatePanel
+            // 
+            this.dueDatePanel.AutoSize = true;
+            this.dueDatePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.dueDatePanel.Location = new System.Drawing.Point(10, 137);
+            this.dueDatePanel.Margin = new System.Windows.Forms.Padding(10, 10, 1, 10);
+            this.dueDatePanel.Name = "dueDatePanel";
+            this.dueDatePanel.Size = new System.Drawing.Size(0, 0);
+            this.dueDatePanel.TabIndex = 3;
+            this.dueDatePanel.SizeChanged += new System.EventHandler(this.dueDatePanel_SizeChanged);
+            this.dueDatePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.dueDatePanel_Paint);
+            // 
             // checkListPanel
             // 
             this.checkListPanel.AllowDrop = true;
@@ -242,42 +208,6 @@
             this.checkListPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.checkListPanel_DragDrop);
             this.checkListPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.checkListPanel_DragEnter);
             this.checkListPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.checkListPanel_Paint);
-            // 
-            // descriptionPanel
-            // 
-            this.descriptionPanel.AutoSize = true;
-            this.descriptionPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.descriptionPanel.Controls.Add(this.descriptionUserControl);
-            this.descriptionPanel.Location = new System.Drawing.Point(10, 10);
-            this.descriptionPanel.Margin = new System.Windows.Forms.Padding(10, 10, 1, 10);
-            this.descriptionPanel.Name = "descriptionPanel";
-            this.descriptionPanel.Size = new System.Drawing.Size(723, 107);
-            this.descriptionPanel.TabIndex = 0;
-            this.descriptionPanel.SizeChanged += new System.EventHandler(this.descriptionPanel_SizeChanged);
-            this.descriptionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.descriptionPanel_Paint);
-            // 
-            // descriptionUserControl
-            // 
-            this.descriptionUserControl.AutoSize = true;
-            this.descriptionUserControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.descriptionUserControl.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.descriptionUserControl.Location = new System.Drawing.Point(5, 5);
-            this.descriptionUserControl.Margin = new System.Windows.Forms.Padding(5);
-            this.descriptionUserControl.Name = "descriptionUserControl";
-            this.descriptionUserControl.Size = new System.Drawing.Size(713, 97);
-            this.descriptionUserControl.TabIndex = 0;
-            // 
-            // dueDatePanel
-            // 
-            this.dueDatePanel.AutoSize = true;
-            this.dueDatePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.dueDatePanel.Location = new System.Drawing.Point(10, 137);
-            this.dueDatePanel.Margin = new System.Windows.Forms.Padding(10, 10, 1, 10);
-            this.dueDatePanel.Name = "dueDatePanel";
-            this.dueDatePanel.Size = new System.Drawing.Size(0, 0);
-            this.dueDatePanel.TabIndex = 3;
-            this.dueDatePanel.SizeChanged += new System.EventHandler(this.dueDatePanel_SizeChanged);
-            this.dueDatePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.dueDatePanel_Paint);
             // 
             // featurePanel
             // 
@@ -305,6 +235,120 @@
             this.actionPanel.SizeChanged += new System.EventHandler(this.actionPanel_SizeChanged);
             this.actionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.actionPanel_Paint);
             // 
+            // addFeaturePanel
+            // 
+            this.addFeaturePanel.AutoSize = true;
+            this.addFeaturePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.addFeaturePanel.Controls.Add(this.addFeatureLabel);
+            this.addFeaturePanel.Controls.Add(this.addChecklistButton);
+            this.addFeaturePanel.Controls.Add(this.addDueDateButton);
+            this.addFeaturePanel.Location = new System.Drawing.Point(4, 135);
+            this.addFeaturePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.addFeaturePanel.Name = "addFeaturePanel";
+            this.addFeaturePanel.Size = new System.Drawing.Size(137, 142);
+            this.addFeaturePanel.TabIndex = 2;
+            this.addFeaturePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.addFeaturePanel_Paint);
+            // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Text = "notifyIcon";
+            this.notifyIcon.Visible = true;
+            // 
+            // iconPictureBox
+            // 
+            this.iconPictureBox.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.iconPictureBox.Image = global::Board.Properties.Resources.CardIcon;
+            this.iconPictureBox.Location = new System.Drawing.Point(16, 3);
+            this.iconPictureBox.Name = "iconPictureBox";
+            this.iconPictureBox.Size = new System.Drawing.Size(32, 32);
+            this.iconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.iconPictureBox.TabIndex = 0;
+            this.iconPictureBox.TabStop = false;
+            // 
+            // ObservationPIctureBox
+            // 
+            this.ObservationPIctureBox.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.ObservationPIctureBox.Image = global::Board.Properties.Resources.ObservationIcon32;
+            this.ObservationPIctureBox.Location = new System.Drawing.Point(16, 3);
+            this.ObservationPIctureBox.Name = "ObservationPIctureBox";
+            this.ObservationPIctureBox.Size = new System.Drawing.Size(32, 32);
+            this.ObservationPIctureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.ObservationPIctureBox.TabIndex = 4;
+            this.ObservationPIctureBox.TabStop = false;
+            this.ObservationPIctureBox.Visible = false;
+            // 
+            // listPictureBox
+            // 
+            this.listPictureBox.Image = global::Board.Properties.Resources.ListIcon16;
+            this.listPictureBox.Location = new System.Drawing.Point(78, 19);
+            this.listPictureBox.Margin = new System.Windows.Forms.Padding(1);
+            this.listPictureBox.Name = "listPictureBox";
+            this.listPictureBox.Size = new System.Drawing.Size(16, 16);
+            this.listPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.listPictureBox.TabIndex = 1;
+            this.listPictureBox.TabStop = false;
+            // 
+            // boardPictureBox
+            // 
+            this.boardPictureBox.Image = global::Board.Properties.Resources.BoardIcon16;
+            this.boardPictureBox.Location = new System.Drawing.Point(78, 1);
+            this.boardPictureBox.Margin = new System.Windows.Forms.Padding(1);
+            this.boardPictureBox.Name = "boardPictureBox";
+            this.boardPictureBox.Size = new System.Drawing.Size(16, 16);
+            this.boardPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.boardPictureBox.TabIndex = 0;
+            this.boardPictureBox.TabStop = false;
+            // 
+            // observePictureBox
+            // 
+            this.observePictureBox.BackColor = System.Drawing.Color.SpringGreen;
+            this.observePictureBox.Location = new System.Drawing.Point(3, 85);
+            this.observePictureBox.Name = "observePictureBox";
+            this.observePictureBox.Size = new System.Drawing.Size(130, 10);
+            this.observePictureBox.TabIndex = 3;
+            this.observePictureBox.TabStop = false;
+            this.observePictureBox.Visible = false;
+            // 
+            // exitButton
+            // 
+            this.exitButton.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
+            this.exitButton.FlatAppearance.BorderSize = 0;
+            this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Image = global::Board.Properties.Resources.CloseIcon24;
+            this.exitButton.Location = new System.Drawing.Point(857, 0);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(42, 42);
+            this.exitButton.TabIndex = 3;
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // cardNameRichTextBox
+            // 
+            this.cardNameRichTextBox.AutoSize = true;
+            this.cardNameRichTextBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.cardNameRichTextBox.BackgroundColor = System.Drawing.Color.Empty;
+            this.cardNameRichTextBox.ContentText = null;
+            this.cardNameRichTextBox.FoucesedRichTextBoxColor = System.Drawing.Color.Empty;
+            this.cardNameRichTextBox.Location = new System.Drawing.Point(78, 3);
+            this.cardNameRichTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.cardNameRichTextBox.Name = "cardNameRichTextBox";
+            this.cardNameRichTextBox.NonFoucesedRichTextBoxColor = System.Drawing.Color.Empty;
+            this.cardNameRichTextBox.SaveButtonCommand = null;
+            this.cardNameRichTextBox.Size = new System.Drawing.Size(406, 37);
+            this.cardNameRichTextBox.TabIndex = 2;
+            // 
+            // descriptionUserControl
+            // 
+            this.descriptionUserControl.AutoSize = true;
+            this.descriptionUserControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.descriptionUserControl.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.descriptionUserControl.Location = new System.Drawing.Point(5, 5);
+            this.descriptionUserControl.Margin = new System.Windows.Forms.Padding(5);
+            this.descriptionUserControl.Name = "descriptionUserControl";
+            this.descriptionUserControl.Size = new System.Drawing.Size(692, 97);
+            this.descriptionUserControl.TabIndex = 0;
+            // 
             // actionLabel
             // 
             this.actionLabel.AutoSize = true;
@@ -315,7 +359,7 @@
             this.actionLabel.Margin = new System.Windows.Forms.Padding(3);
             this.actionLabel.Name = "actionLabel";
             this.actionLabel.RoundedRadius = 5;
-            this.actionLabel.Size = new System.Drawing.Size(83, 32);
+            this.actionLabel.Size = new System.Drawing.Size(66, 25);
             this.actionLabel.TabIndex = 5;
             this.actionLabel.Text = "Action";
             // 
@@ -339,30 +383,6 @@
             this.observeButton.UseVisualStyleBackColor = false;
             this.observeButton.Click += new System.EventHandler(this.observeButton_Click);
             // 
-            // observePictureBox
-            // 
-            this.observePictureBox.BackColor = System.Drawing.Color.SpringGreen;
-            this.observePictureBox.Location = new System.Drawing.Point(3, 85);
-            this.observePictureBox.Name = "observePictureBox";
-            this.observePictureBox.Size = new System.Drawing.Size(130, 10);
-            this.observePictureBox.TabIndex = 3;
-            this.observePictureBox.TabStop = false;
-            this.observePictureBox.Visible = false;
-            // 
-            // addFeaturePanel
-            // 
-            this.addFeaturePanel.AutoSize = true;
-            this.addFeaturePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.addFeaturePanel.Controls.Add(this.addFeatureLabel);
-            this.addFeaturePanel.Controls.Add(this.addChecklistButton);
-            this.addFeaturePanel.Controls.Add(this.addDueDateButton);
-            this.addFeaturePanel.Location = new System.Drawing.Point(4, 135);
-            this.addFeaturePanel.Margin = new System.Windows.Forms.Padding(2);
-            this.addFeaturePanel.Name = "addFeaturePanel";
-            this.addFeaturePanel.Size = new System.Drawing.Size(137, 142);
-            this.addFeaturePanel.TabIndex = 2;
-            this.addFeaturePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.addFeaturePanel_Paint);
-            // 
             // addFeatureLabel
             // 
             this.addFeatureLabel.AutoSize = true;
@@ -373,7 +393,7 @@
             this.addFeatureLabel.Margin = new System.Windows.Forms.Padding(3);
             this.addFeatureLabel.Name = "addFeatureLabel";
             this.addFeatureLabel.RoundedRadius = 5;
-            this.addFeatureLabel.Size = new System.Drawing.Size(58, 32);
+            this.addFeatureLabel.Size = new System.Drawing.Size(46, 25);
             this.addFeatureLabel.TabIndex = 6;
             this.addFeatureLabel.Text = "Add";
             // 
@@ -417,11 +437,6 @@
             this.addDueDateButton.UseVisualStyleBackColor = false;
             this.addDueDateButton.Click += new System.EventHandler(this.addDueDateButton_Click);
             // 
-            // notifyIcon
-            // 
-            this.notifyIcon.Text = "notifyIcon";
-            this.notifyIcon.Visible = true;
-            // 
             // CardForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -437,13 +452,10 @@
             this.Load += new System.EventHandler(this.CardForm_Load);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.informationPanel.ResumeLayout(false);
             this.informationPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boardPictureBox)).EndInit();
             this.bodyPanel.ResumeLayout(false);
             this.contentPanel.ResumeLayout(false);
             this.contentPanel.PerformLayout();
@@ -453,9 +465,13 @@
             this.featurePanel.PerformLayout();
             this.actionPanel.ResumeLayout(false);
             this.actionPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.observePictureBox)).EndInit();
             this.addFeaturePanel.ResumeLayout(false);
             this.addFeaturePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ObservationPIctureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boardPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.observePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -489,5 +505,6 @@
         private System.Windows.Forms.PictureBox listPictureBox;
         private System.Windows.Forms.Label listLabel;
         private System.Windows.Forms.Label boardLabel;
+        private System.Windows.Forms.PictureBox ObservationPIctureBox;
     }
 }
