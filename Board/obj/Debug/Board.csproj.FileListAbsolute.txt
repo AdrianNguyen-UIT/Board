@@ -31,3 +31,27 @@ C:\Users\Admin\Desktop\BoardApp\Board\bin\Debug\BoardApp.mdf
 C:\Users\Admin\Desktop\BoardApp\Board\bin\Debug\BoardApp_log.ldf
 C:\Users\Admin\Desktop\BoardApp\Board\bin\Debug\Dapper.dll
 C:\Users\Admin\Desktop\BoardApp\Board\bin\Debug\Dapper.xml
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\Board.csprojAssemblyReference.cache
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\Board.CardForm.resources
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\MyCustomControl.CheckListItemUserControl.resources
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\MyCustomControl.CheckListUserControl.resources
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\MyCustomControl.CustomRichTextBox.resources
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\MyCustomControl.DescriptionUserControl.resources
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\MyCustomControl.DueDateStateBar.resources
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\MyCustomControl.DueDateUserControl.resources
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\MyCustomControl.RoundedProgressBar.resources
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\Board.Properties.Resources.resources
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\Board.csproj.GenerateResource.cache
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\Board.csproj.CoreCompileInputs.cache
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\Board.exe
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\Board.pdb
+C:\Users\Kazekage\Desktop\New folder\Board\Board\bin\Debug\BoardApp.mdf
+C:\Users\Kazekage\Desktop\New folder\Board\Board\bin\Debug\BoardApp_log.ldf
+C:\Users\Kazekage\Desktop\New folder\Board\Board\bin\Debug\Board.exe.config
+C:\Users\Kazekage\Desktop\New folder\Board\Board\bin\Debug\Board.exe
+C:\Users\Kazekage\Desktop\New folder\Board\Board\bin\Debug\Board.pdb
+C:\Users\Kazekage\Desktop\New folder\Board\Board\bin\Debug\Control.Draggable.dll
+C:\Users\Kazekage\Desktop\New folder\Board\Board\bin\Debug\Dapper.dll
+C:\Users\Kazekage\Desktop\New folder\Board\Board\bin\Debug\Dapper.xml
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\Board.csproj.CopyComplete
+C:\Users\Kazekage\Desktop\New folder\Board\Board\obj\Debug\Board.Card.resources
