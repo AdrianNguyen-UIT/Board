@@ -27,3 +27,7 @@ C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\obj\Debug\Board.csproj.Core
 C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\obj\Debug\Board.exe
 C:\Users\Kazekage\Desktop\New folder (3)\Board\Board\obj\Debug\Board.pdb
 C:\Users\Admin\Desktop\BoardApp\Board\obj\Debug\Board.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\BoardApp\Board\bin\Debug\BoardApp.mdf
+C:\Users\Admin\Desktop\BoardApp\Board\bin\Debug\BoardApp_log.ldf
+C:\Users\Admin\Desktop\BoardApp\Board\bin\Debug\Dapper.dll
+C:\Users\Admin\Desktop\BoardApp\Board\bin\Debug\Dapper.xml

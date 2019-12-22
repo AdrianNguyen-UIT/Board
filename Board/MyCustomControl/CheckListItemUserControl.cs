@@ -106,7 +106,7 @@ namespace MyCustomControl
         {
             if (((CheckBox)sender) != null)
             {
-                if(((CheckBox)sender).Checked == false)
+                if(((CheckBox)sender).Checked == true)
                 {
                     customRichTextBox.SetFont(new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
                 }
