@@ -139,40 +139,57 @@ namespace Board
             Card item = CardListPanel.GetChildAtPoint(p) as Card;
             if (element == null) return;
             if (element == item) return;
-            if (item == null)
+            if (element.Parent as FlowLayoutPanel == CardListPanel)
             {
-
-                ((element.Parent as FlowLayoutPanel).Parent as Lists).listCard.Remove(element);
-                listCard.Add(element);
-                CardListPanel.Controls.Clear();
-                for (int i = 0; i < listCard.Count; i++)
-                {
-                    CardListPanel.Controls.Add(listCard[i]);
-                    listCard[i].Deleted += Card_Deleted;
-                }
-                CardListPanel.Controls.Add(ButtonAddCard);
+                if (item == null)
+                    item = listCard[listCard.Count - 1];
+                int indexi = CardListPanel.Controls.GetChildIndex(item, false);
+                int indexe = CardListPanel.Controls.GetChildIndex(element, false);
+                CardListPanel.Controls.SetChildIndex(element, indexi);
+                CardListPanel.Controls.SetChildIndex(item, indexe);
+                indexi = listCard.IndexOf(item);
+                indexe = listCard.IndexOf(element);
+                Card temp = listCard[indexi];
+                listCard[indexi] = listCard[indexe];
+                listCard[indexe] = temp;
             }
             else
             {
-                listCard.Add(element);
-                element.Deleted += Card_Deleted;
-                ((element.Parent as FlowLayoutPanel).Parent as Lists).listCard.Remove(element);
-                List<Card> temp = new List<Card>();
-                for (int i = 0; i < listCard.Count; i++)
+                if (item == null)
                 {
-                    if (i < listCard.IndexOf(item)) temp.Add(listCard[i]);
-                    else if (i > listCard.IndexOf(item)) temp.Add(listCard[i - 1]);
-                    else temp.Add(element);
+
+                    ((element.Parent as FlowLayoutPanel).Parent as Lists).listCard.Remove(element);
+                    listCard.Add(element);
+                    CardListPanel.Controls.Clear();
+                    for (int i = 0; i < listCard.Count; i++)
+                    {
+                        CardListPanel.Controls.Add(listCard[i]);
+                        listCard[i].Deleted += Card_Deleted;
+                    }
+                    CardListPanel.Controls.Add(ButtonAddCard);
                 }
-                listCard.Clear();
-                listCard = temp;
-                CardListPanel.Controls.Remove(ButtonAddCard);
-                CardListPanel.Controls.Clear();
-                for (int i = 0; i < listCard.Count; i++)
+                else
                 {
-                    CardListPanel.Controls.Add(listCard[i]);
+                    listCard.Add(element);
+                    element.Deleted += Card_Deleted;
+                    ((element.Parent as FlowLayoutPanel).Parent as Lists).listCard.Remove(element);
+                    List<Card> temp = new List<Card>();
+                    for (int i = 0; i < listCard.Count; i++)
+                    {
+                        if (i < listCard.IndexOf(item)) temp.Add(listCard[i]);
+                        else if (i > listCard.IndexOf(item)) temp.Add(listCard[i - 1]);
+                        else temp.Add(element);
+                    }
+                    listCard.Clear();
+                    listCard = temp;
+                    CardListPanel.Controls.Remove(ButtonAddCard);
+                    CardListPanel.Controls.Clear();
+                    for (int i = 0; i < listCard.Count; i++)
+                    {
+                        CardListPanel.Controls.Add(listCard[i]);
+                    }
+                    CardListPanel.Controls.Add(ButtonAddCard);
                 }
-                CardListPanel.Controls.Add(ButtonAddCard);
             }
         }
         private void DeleteListButton_Click_1(object sender, EventArgs e)
