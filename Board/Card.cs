@@ -23,11 +23,12 @@ namespace Board
             // 
             // CardNameTB
             // 
-            this.CardNameTB.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CardNameTB.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CardNameTB.Location = new System.Drawing.Point(3, 3);
             this.CardNameTB.Name = "CardNameTB";
-            this.CardNameTB.Size = new System.Drawing.Size(99, 32);
+            this.CardNameTB.Size = new System.Drawing.Size(164, 26);
             this.CardNameTB.TabIndex = 1;
+            this.CardNameTB.Text = "Card Name";
             // 
             // deleteButton
             // 
@@ -40,12 +41,12 @@ namespace Board
             this.deleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteButton.Image = global::Board.Properties.Resources.DeleteIcon16;
-            this.deleteButton.Location = new System.Drawing.Point(108, 3);
+            this.deleteButton.Image = global::Board.Properties.Resources.DeleteIcon;
+            this.deleteButton.Location = new System.Drawing.Point(108, 35);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.OnHoverButtonColor = System.Drawing.Color.Transparent;
             this.deleteButton.RoundedRadius = 2;
-            this.deleteButton.Size = new System.Drawing.Size(59, 32);
+            this.deleteButton.Size = new System.Drawing.Size(59, 26);
             this.deleteButton.TabIndex = 7;
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
@@ -58,10 +59,12 @@ namespace Board
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.CardNameTB);
             this.Name = "Card";
-            this.Size = new System.Drawing.Size(170, 85);
+            this.Size = new System.Drawing.Size(170, 67);
+            this.DoubleClick += new System.EventHandler(this.Card_DoubleClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Card_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();
+
 
         }
         private event EventHandler deleted;
@@ -70,22 +73,23 @@ namespace Board
             add { deleted += value; }
             remove { deleted -= value; }
         }
-        private void DeleteCardButton_Click(object sender, EventArgs e)
-        {
-            if (deleted != null)
-                deleted(this, new EventArgs());
-        }
-
         private void Card_MouseDown(object sender, MouseEventArgs e)
         {
-            DataObject dragData = new DataObject("Object", this);
-            this.DoDragDrop(dragData, DragDropEffects.Move);
+            if (e.Button == MouseButtons.Left && e.Clicks == 1)
+            {
+                DataObject dragData = new DataObject("Object", this);
+                this.DoDragDrop(dragData, DragDropEffects.Move);
+            }
         }
         private void deleteButton_Click(object sender, EventArgs e)
         {
             if (deleted != null)
                 deleted(this, new EventArgs());
+        }
 
+        private void Card_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Card Form");
         }
     }
 }

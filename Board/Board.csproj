@@ -228,6 +228,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BoardApp.mdf</DependentUpon>
     </Content>
+    <None Include="Icons\AddIcon.png" />
     <Content Include="Icons\BoardIcon16.png" />
     <Content Include="Icons\BoardIcon24.png" />
     <Content Include="Icons\BoardIcon32.png" />
@@ -245,6 +246,8 @@
     <Content Include="Icons\ObservationIcon16.png" />
     <Content Include="Icons\ObservationIcon24.png" />
     <Content Include="Icons\ObservationIcon32.png" />
+    <Content Include="Icons\AddIcon32.png" />
+    <None Include="Resources\AddIcon32.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
