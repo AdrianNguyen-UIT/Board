@@ -49,8 +49,8 @@ Thao tác 1 phần trên công việc
     - Thêm, xóa, sửa thời gian kết thúc công việc
     - Thêm, xóa, sửa các checklist
     - Thêm các item cho checklist
-Nhóm tác giả:
-Nguyễn Lương Kiên
-Phạm Thăng Long
+## Nhóm tác giả:
+ - Nguyễn Lương Kiên
+ - Phạm Thăng Long
    
    
