@@ -10,7 +10,7 @@ Thao tác trên danh sách
 Thao tác 1 phần trên công việc
 ```
 
-![HomePage](https://user-images.githubusercontent.com/58738862/71444726-1616ac00-2746-11ea-874c-3c63587397f8.png)
+![MainFormImage](https://user-images.githubusercontent.com/58659205/71450702-6e2ace00-2799-11ea-94c1-f75892e4c984.png)
 
 1. Bảng
   - Bảng gồm tên bảng và các danh sách có trong bảng
@@ -41,7 +41,7 @@ Thao tác 1 phần trên công việc
   Thời gian kết thúc công việc
   Các checklist
   ```
-  ![CardForm](https://user-images.githubusercontent.com/58738862/71444299-cf738280-2742-11ea-916f-34cf302df6f6.png)
+![CardFormImage](https://user-images.githubusercontent.com/58659205/71450707-87337f00-2799-11ea-89d2-0fb41c701ec6.png)
   - Các thao tác trên Card Form:
     - Chỉnh sửa tên công việc
     - Chỉnh sửa miêu tả công việc
