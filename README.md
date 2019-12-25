@@ -60,8 +60,8 @@ Thao tác 1 phần trên công việc
   
 
  Ứng dụng Board được lấy cảm hứng từ Trello - một công cụ quản lý thời gian rất nổi tiếng. Bạn có thể xem thêm về Trello ở [đây]([https://trello.com/](https://trello.com/))
-Ứng dụng được sử dụng với mục đích học tập, không mang tính thương mại.
-Các Icon được sử dụng trong ứng dụng đều được lấy từ nguồn bên ngoài:
+ Ứng dụng được sử dụng với mục đích học tập, không mang tính thương mại.
+ Các Icon được sử dụng trong ứng dụng đều được lấy từ nguồn bên ngoài:
 
  - Icons made by Pixel perfect from www.flaticon.com
  - Icons made by Kiranshastry from www.flaticon.com
