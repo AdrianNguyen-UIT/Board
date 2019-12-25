@@ -34,14 +34,14 @@ namespace MyCustomControl
             this.topPanel = new System.Windows.Forms.Panel();
             this.hideButton = new MyCustomControl.RoundedButton();
             this.showButton = new MyCustomControl.RoundedButton();
-            this.iconPictureBox = new System.Windows.Forms.PictureBox();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.bottomPanel = new System.Windows.Forms.Panel();
             this.customRichTextBox = new MyCustomControl.CustomRichTextBox();
+            this.iconPictureBox = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel.SuspendLayout();
             this.topPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
             this.bottomPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel
@@ -108,24 +108,13 @@ namespace MyCustomControl
             this.showButton.UseVisualStyleBackColor = true;
             this.showButton.Click += new System.EventHandler(this.showButton_Click);
             // 
-            // iconPictureBox
-            // 
-            this.iconPictureBox.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.iconPictureBox.Image = global::Board.Properties.Resources.DescriptionIcon;
-            this.iconPictureBox.Location = new System.Drawing.Point(15, 3);
-            this.iconPictureBox.Name = "iconPictureBox";
-            this.iconPictureBox.Size = new System.Drawing.Size(32, 32);
-            this.iconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.iconPictureBox.TabIndex = 1;
-            this.iconPictureBox.TabStop = false;
-            // 
             // descriptionLabel
             // 
             this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel.Location = new System.Drawing.Point(56, 3);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(125, 30);
+            this.descriptionLabel.Size = new System.Drawing.Size(114, 25);
             this.descriptionLabel.TabIndex = 0;
             this.descriptionLabel.Text = "Description";
             // 
@@ -152,9 +141,19 @@ namespace MyCustomControl
             this.customRichTextBox.Margin = new System.Windows.Forms.Padding(0);
             this.customRichTextBox.Name = "customRichTextBox";
             this.customRichTextBox.NonFoucesedRichTextBoxColor = System.Drawing.Color.Empty;
-            this.customRichTextBox.SaveButtonCommand = null;
             this.customRichTextBox.Size = new System.Drawing.Size(406, 37);
             this.customRichTextBox.TabIndex = 0;
+            // 
+            // iconPictureBox
+            // 
+            this.iconPictureBox.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.iconPictureBox.Image = global::Board.Properties.Resources.DescriptionIcon32;
+            this.iconPictureBox.Location = new System.Drawing.Point(15, 2);
+            this.iconPictureBox.Name = "iconPictureBox";
+            this.iconPictureBox.Size = new System.Drawing.Size(32, 32);
+            this.iconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.iconPictureBox.TabIndex = 1;
+            this.iconPictureBox.TabStop = false;
             // 
             // DescriptionUserControl
             // 
@@ -171,9 +170,9 @@ namespace MyCustomControl
             this.flowLayoutPanel.PerformLayout();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
             this.bottomPanel.ResumeLayout(false);
             this.bottomPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

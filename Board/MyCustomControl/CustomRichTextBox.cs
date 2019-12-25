@@ -13,10 +13,31 @@ namespace MyCustomControl
     public partial class CustomRichTextBox : UserControl
     {
         private String contentText;
-        private String saveButtonCommand;
         private Color backgroundColor;
         private Color nonFocusedsRichTextBoxColor;
         private Color focusedRichTextBoxColor;
+
+        public delegate void CancelMouseDownEventHandler(object sender, EventArgs e);
+        public event CancelMouseDownEventHandler CancelMouseDown;
+
+        protected virtual void OnCancelMouseDown()
+        {
+            if(CancelMouseDown != null)
+            {
+                CancelMouseDown(this, EventArgs.Empty);
+            }
+        }
+
+        public delegate void SaveMouseDownEventHandler(object sender, EventArgs e);
+        public event CancelMouseDownEventHandler SaveMouseDown;
+
+        protected virtual void OnSaveMouseDown()
+        {
+            if (SaveMouseDown != null)
+            {
+                SaveMouseDown(this, EventArgs.Empty);
+            }
+        }
 
         public CustomRichTextBox()
         {
@@ -41,17 +62,14 @@ namespace MyCustomControl
         private void saveButton_Click(object sender, EventArgs e)
         {
             contentText = richTextBox.Text;
-
-            //Save contentText into database
-            //
-            //
-
+            OnSaveMouseDown();
             PerformBeginningState();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             richTextBox.Text = contentText;
+            OnCancelMouseDown();
             PerformBeginningState();
         }
 
@@ -91,38 +109,12 @@ namespace MyCustomControl
             Invalidate();
         }
 
-        public String SaveButtonCommand
-        {
-            get
-            {
-                if (saveButtonCommand == "")
-                {
-                    return "null";
-                }
-                else
-                {
-                    return saveButtonCommand;
-                }
-            }
-            set
-            {
-                saveButtonCommand = value;
-                Invalidate();
-            }
-        }
 
         public String ContentText
         {
             get
             {
-                if (contentText == "")
-                {
-                    return "null";
-                }
-                else
-                {
-                    return contentText;
-                }
+                return contentText;
             }
             set
             {
@@ -198,6 +190,11 @@ namespace MyCustomControl
         private void CustomRichTextBox_Leave(object sender, EventArgs e)
         {
             cancelButton.PerformClick();
+        }
+
+        private void richTextBox_Enter(object sender, EventArgs e)
+        {
+            richTextBox_MouseDown(sender, null);
         }
     }
 }

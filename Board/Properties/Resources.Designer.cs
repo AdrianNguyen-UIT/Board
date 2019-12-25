@@ -19,7 +19,7 @@ namespace Board.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -113,9 +113,29 @@ namespace Board.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CheckListIcon {
+        internal static System.Drawing.Bitmap CheckListIcon16 {
             get {
-                object obj = ResourceManager.GetObject("CheckListIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("CheckListIcon16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CheckListIcon24 {
+            get {
+                object obj = ResourceManager.GetObject("CheckListIcon24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CheckListIcon32 {
+            get {
+                object obj = ResourceManager.GetObject("CheckListIcon32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +193,9 @@ namespace Board.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DescriptionIcon {
+        internal static System.Drawing.Bitmap DescriptionIcon16 {
             get {
-                object obj = ResourceManager.GetObject("DescriptionIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("DescriptionIcon16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +203,49 @@ namespace Board.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DueDateIcon {
+        internal static System.Drawing.Bitmap DescriptionIcon24 {
             get {
-                object obj = ResourceManager.GetObject("DueDateIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("DescriptionIcon24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DescriptionIcon32 {
+            get {
+                object obj = ResourceManager.GetObject("DescriptionIcon32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DueDateIcon16 {
+            get {
+                object obj = ResourceManager.GetObject("DueDateIcon16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DueDateIcon24 {
+            get {
+                object obj = ResourceManager.GetObject("DueDateIcon24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DueDateIcon32 {
+            get {
+                object obj = ResourceManager.GetObject("DueDateIcon32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

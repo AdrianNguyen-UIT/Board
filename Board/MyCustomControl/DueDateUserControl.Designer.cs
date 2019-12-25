@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.topPanel = new System.Windows.Forms.Panel();
+            this.deleteButton = new MyCustomControl.CircularButton();
             this.dueDateLabel = new System.Windows.Forms.Label();
             this.iconPicturebox = new System.Windows.Forms.PictureBox();
             this.contentPanel = new System.Windows.Forms.Panel();
@@ -37,9 +38,9 @@
             this.setReminderLabel = new MyCustomControl.RoundedLabel();
             this.timePanel = new System.Windows.Forms.Panel();
             this.secondTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.colonLabel2 = new System.Windows.Forms.Label();
             this.minuteTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.colonLabel1 = new System.Windows.Forms.Label();
             this.hourTextBox = new System.Windows.Forms.TextBox();
             this.timeLabel = new MyCustomControl.RoundedLabel();
             this.datePanel = new System.Windows.Forms.Panel();
@@ -52,7 +53,6 @@
             this.saveCancelPanel = new System.Windows.Forms.Panel();
             this.saveButton = new MyCustomControl.RoundedButton();
             this.cancelButton = new MyCustomControl.RoundedButton();
-            this.deleteButton = new MyCustomControl.CircularButton();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPicturebox)).BeginInit();
             this.contentPanel.SuspendLayout();
@@ -76,20 +76,36 @@
             this.topPanel.Size = new System.Drawing.Size(687, 38);
             this.topPanel.TabIndex = 0;
             // 
+            // deleteButton
+            // 
+            this.deleteButton.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.deleteButton.FlatAppearance.BorderSize = 0;
+            this.deleteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.deleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteButton.Image = global::Board.Properties.Resources.CloseIcon16;
+            this.deleteButton.Location = new System.Drawing.Point(656, 3);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(31, 31);
+            this.deleteButton.TabIndex = 2;
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // dueDateLabel
             // 
             this.dueDateLabel.AutoSize = true;
-            this.dueDateLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dueDateLabel.Location = new System.Drawing.Point(62, 5);
+            this.dueDateLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dueDateLabel.Location = new System.Drawing.Point(63, 3);
             this.dueDateLabel.Name = "dueDateLabel";
-            this.dueDateLabel.Size = new System.Drawing.Size(103, 30);
+            this.dueDateLabel.Size = new System.Drawing.Size(94, 25);
             this.dueDateLabel.TabIndex = 1;
             this.dueDateLabel.Text = "Due Date";
             // 
             // iconPicturebox
             // 
             this.iconPicturebox.BackColor = System.Drawing.Color.MediumPurple;
-            this.iconPicturebox.Image = global::Board.Properties.Resources.DueDateIcon;
+            this.iconPicturebox.Image = global::Board.Properties.Resources.DueDateIcon32;
             this.iconPicturebox.Location = new System.Drawing.Point(15, 3);
             this.iconPicturebox.Margin = new System.Windows.Forms.Padding(3, 1, 1, 1);
             this.iconPicturebox.Name = "iconPicturebox";
@@ -142,7 +158,6 @@
             this.setReminderComboBox.Size = new System.Drawing.Size(241, 28);
             this.setReminderComboBox.TabIndex = 4;
             this.setReminderComboBox.Text = "At Time";
-            this.setReminderComboBox.SelectedIndexChanged += new System.EventHandler(this.setReminderComboBox_SelectedIndexChanged);
             this.setReminderComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.setReminderComboBox_MouseDown);
             // 
             // setReminderLabel
@@ -163,9 +178,9 @@
             this.timePanel.AutoSize = true;
             this.timePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.timePanel.Controls.Add(this.secondTextBox);
-            this.timePanel.Controls.Add(this.label3);
+            this.timePanel.Controls.Add(this.colonLabel2);
             this.timePanel.Controls.Add(this.minuteTextBox);
-            this.timePanel.Controls.Add(this.label1);
+            this.timePanel.Controls.Add(this.colonLabel1);
             this.timePanel.Controls.Add(this.hourTextBox);
             this.timePanel.Controls.Add(this.timeLabel);
             this.timePanel.Location = new System.Drawing.Point(266, 3);
@@ -186,16 +201,16 @@
             this.secondTextBox.Text = "59";
             this.secondTextBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.secondTextBox_MouseDown);
             // 
-            // label3
+            // colonLabel2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(84, 37);
-            this.label3.Margin = new System.Windows.Forms.Padding(3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(11, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = ":";
+            this.colonLabel2.AutoSize = true;
+            this.colonLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colonLabel2.Location = new System.Drawing.Point(84, 37);
+            this.colonLabel2.Margin = new System.Windows.Forms.Padding(3);
+            this.colonLabel2.Name = "colonLabel2";
+            this.colonLabel2.Size = new System.Drawing.Size(11, 17);
+            this.colonLabel2.TabIndex = 5;
+            this.colonLabel2.Text = ":";
             // 
             // minuteTextBox
             // 
@@ -210,16 +225,16 @@
             this.minuteTextBox.Text = "59";
             this.minuteTextBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.minuteTextBox_MouseDown);
             // 
-            // label1
+            // colonLabel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 35);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(11, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = ":";
+            this.colonLabel1.AutoSize = true;
+            this.colonLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colonLabel1.Location = new System.Drawing.Point(36, 35);
+            this.colonLabel1.Margin = new System.Windows.Forms.Padding(3);
+            this.colonLabel1.Name = "colonLabel1";
+            this.colonLabel1.Size = new System.Drawing.Size(11, 17);
+            this.colonLabel1.TabIndex = 2;
+            this.colonLabel1.Text = ":";
             // 
             // hourTextBox
             // 
@@ -391,22 +406,6 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // deleteButton
-            // 
-            this.deleteButton.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.deleteButton.FlatAppearance.BorderSize = 0;
-            this.deleteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
-            this.deleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
-            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteButton.Image = global::Board.Properties.Resources.CloseIcon16;
-            this.deleteButton.Location = new System.Drawing.Point(656, 3);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(31, 31);
-            this.deleteButton.TabIndex = 2;
-            this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
             // DueDateUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,9 +452,9 @@
         private System.Windows.Forms.Panel timePanel;
         private System.Windows.Forms.Panel datePanel;
         private System.Windows.Forms.TextBox secondTextBox;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label colonLabel2;
         private System.Windows.Forms.TextBox minuteTextBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label colonLabel1;
         private System.Windows.Forms.TextBox hourTextBox;
         private System.Windows.Forms.Panel setReminderPanel;
         private RoundedLabel setReminderLabel;

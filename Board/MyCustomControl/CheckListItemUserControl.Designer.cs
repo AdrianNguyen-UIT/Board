@@ -55,7 +55,6 @@
             this.customRichTextBox.Margin = new System.Windows.Forms.Padding(0);
             this.customRichTextBox.Name = "customRichTextBox";
             this.customRichTextBox.NonFoucesedRichTextBoxColor = System.Drawing.Color.Empty;
-            this.customRichTextBox.SaveButtonCommand = null;
             this.customRichTextBox.Size = new System.Drawing.Size(539, 44);
             this.customRichTextBox.TabIndex = 1;
             // 

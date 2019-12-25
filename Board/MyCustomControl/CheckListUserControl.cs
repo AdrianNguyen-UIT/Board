@@ -15,22 +15,109 @@ namespace MyCustomControl
     public partial class CheckListUserControl : UserControl
     {
         private Rectangle dragBoxFromMouseDown;
+        public Board.Data.CheckListProp checkListProp;
+        public List<Board.Data.ItemProp> itemProps;
 
         public CheckListUserControl()
         {
             InitializeComponent();
         }
 
+        public delegate void CheckListDeletedEvenHandler(object sender, EventArgs e);
+        public event CheckListDeletedEvenHandler CheckListDeleted;
+        protected virtual void OnCheckListDeleted()
+        {
+            if (CheckListDeleted != null)
+            {
+                CheckListDeleted(this, null);
+            }
+        }
+
+        public delegate void ResetEvenHandler(object sender, EventArgs e);
+        public event ResetEvenHandler Reset;
+        protected virtual void OnReset()
+        {
+            if (Reset != null)
+            {
+               Reset(this, null);
+            }
+        }
+
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Do you really want to delete this checklist?\n" +
-                "Once deleted, this checklist cannot be retrieved", "Announce", MessageBoxButtons.YesNo);
+            DialogResult dialog = MessageBox.Show("Do you really want to delete this Checklist?\n" +
+                "Once deleted, this Checklist cannot be retrieved", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialog == DialogResult.Yes)
             {
-                //Delete checklist from database
-
+                Board.Data.DataService.DeleteCheckList(checkListProp);
+                OnCheckListDeleted();
                 Dispose();
             }
+        }
+
+        public void OnSpawned()
+        {
+            checkListNameRichTextBox.Focus();
+        }
+
+        private void OnSaveMouseDown(object sender, EventArgs e)
+        {
+            checkListProp.CheckList_Name = checkListNameRichTextBox.ContentText;
+            Board.Data.DataService.UpdateCheckList(checkListProp);
+            
+        }
+
+        public void LoadData(Board.Data.CheckListProp _checkListProp)
+        {
+            checkListProp = new Board.Data.CheckListProp();
+            checkListProp = _checkListProp;
+            LoadCheckListName(checkListProp.CheckList_Name);
+            LoadItemList();
+            ResetItemPosition();
+        }
+
+        private void LoadCheckListName(String name)
+        {
+            checkListNameRichTextBox.ContentText = name;
+        }
+
+        private void LoadItemList()
+        {
+            itemProps = Board.Data.DataService.GetItemByCheckListID(checkListProp.CheckList_ID);
+            foreach (Board.Data.ItemProp itemProp in itemProps)
+            {
+                SpawnItem(itemProp);
+            }
+        }
+        public void SpawnItem()
+        {
+            Board.Data.ItemProp itemProp = new Board.Data.ItemProp();
+            itemProp.Item_Description = itemRichTextBox.Text;
+            itemProp.CheckList_ID = checkListProp.CheckList_ID;
+            itemProp.Item_Checked = false;
+            itemProp.Item_Position = itemProps.Count;
+
+            Board.Data.DataService.InsertItem(itemProp);
+            itemProps = Board.Data.DataService.GetItemByCheckListID(checkListProp.CheckList_ID);
+
+            SpawnItem(itemProps[itemProps.Count - 1]);
+
+        }
+
+        public void SpawnItem(Board.Data.ItemProp itemProp)
+        {
+            CheckListItemUserControl item = new CheckListItemUserControl();
+            item.ItemDone += OnItemDone;
+            item.ItemDeleted += OnItemDeleted;
+            item.LoadData(itemProp);
+
+            itemListPanel.Controls.Add(item);
+            itemListPanel.Controls.SetChildIndex(item, itemProp.Item_Position);
+
+            roundedProgressBar.Denominator += 1;
+            roundedProgressBar.Animate();
+            percentageNumberLabel.Text = Convert.ToInt32(roundedProgressBar.Value).ToString() + "%";
+
         }
 
         private void showButton_Click(object sender, EventArgs e)
@@ -53,6 +140,7 @@ namespace MyCustomControl
             SetupBottomPanel();
             hideButton.Visible = true;
             showButton.Visible = false;
+            checkListNameRichTextBox.SaveMouseDown += OnSaveMouseDown;
         }
 
         private void SetUpCheckListNameCustomRichTextBox()
@@ -61,11 +149,12 @@ namespace MyCustomControl
             checkListNameRichTextBox.SetRichTextBoxMaxSize(520, 200);
             checkListNameRichTextBox.NonFoucesedRichTextBoxColor = Color.LightGray;
             checkListNameRichTextBox.FoucesedRichTextBoxColor = Color.White;
-            checkListNameRichTextBox.SetFont(new Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            checkListNameRichTextBox.SetFont(new Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
         }
 
         private void OnItemDone(object sender, bool state)
         {
+            itemProps = Board.Data.DataService.GetItemByCheckListID(checkListProp.CheckList_ID);
             if (state)
             {
                 roundedProgressBar.CheckedCount += 1;
@@ -80,13 +169,21 @@ namespace MyCustomControl
 
         private void OnItemDeleted(object sender, bool state)
         {
-            if(state)
+            itemProps = Board.Data.DataService.GetItemByCheckListID(checkListProp.CheckList_ID);
+            ResetItemPosition();
+            if (state)
             {
                 roundedProgressBar.CheckedCount -= 1;
             }
             roundedProgressBar.Denominator -= 1;
             roundedProgressBar.Animate();
             percentageNumberLabel.Text = Convert.ToInt32(roundedProgressBar.Value).ToString() + "%";
+        }
+
+        public void SetCheckListPosition(int index)
+        {
+            checkListProp.CheckList_Position = index;
+            Board.Data.DataService.UpdateCheckList(checkListProp);
         }
 
         #region Bottom Panel 
@@ -118,6 +215,16 @@ namespace MyCustomControl
                 int index = target.Controls.GetChildIndex(item, false);
                 target.Controls.SetChildIndex(data, index);
 
+                CheckListUserControl checkListUserControl = target.Parent.Parent.Parent as CheckListUserControl;
+                Board.Data.ItemProp _itemProp = new Board.Data.ItemProp();
+                _itemProp.Item_Checked = data.itemProp.Item_Checked;
+                _itemProp.Item_Description = data.itemProp.Item_Description;
+                _itemProp.Item_Position = index;
+                _itemProp.CheckList_ID = checkListUserControl.checkListProp.CheckList_ID;
+                _itemProp.Item_ID = data.itemProp.Item_ID;
+                Board.Data.DataService.UpdateItem(_itemProp);
+                OnReset();
+
                 // Invalidate to paint!
                 target.Invalidate();
                 source.Invalidate();
@@ -131,6 +238,16 @@ namespace MyCustomControl
                 int index = target.Controls.GetChildIndex(item, false);
                 target.Controls.SetChildIndex(data, index);
                 target.Invalidate();
+
+                ResetItemPosition();
+            }
+        }
+
+        public void ResetItemPosition()
+        {
+            foreach (CheckListItemUserControl item in itemListPanel.Controls)
+            {
+                item.SetItemPosition(itemListPanel.Controls.GetChildIndex(item));
             }
         }
 
@@ -166,10 +283,7 @@ namespace MyCustomControl
         {
             if (itemRichTextBox.Text != "")
             {
-                SpawnItem(itemRichTextBox.Text);
-                roundedProgressBar.Denominator += 1;
-                roundedProgressBar.Animate();
-                percentageNumberLabel.Text = Convert.ToInt32(roundedProgressBar.Value).ToString() + "%";
+                SpawnItem();
                 itemRichTextBox.Text = "";
             }
             else
@@ -178,13 +292,6 @@ namespace MyCustomControl
             }
         }
 
-        private void SpawnItem(String text)
-        {
-            CheckListItemUserControl item = new CheckListItemUserControl(text);
-            item.ItemDone += OnItemDone;
-            item.ItemDeleted += OnItemDeleted;
-            itemListPanel.Controls.Add(item);
-        }
 
         private void iscPanel_Leave(object sender, EventArgs e)
         {
@@ -217,6 +324,5 @@ namespace MyCustomControl
             }
         }
         #endregion
-
     }
 }

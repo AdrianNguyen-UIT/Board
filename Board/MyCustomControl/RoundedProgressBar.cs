@@ -48,7 +48,6 @@ namespace MyCustomControl
             {
                 denominator = value;
                 CalculateValue();
-
                 Invalidate();
             }
         }

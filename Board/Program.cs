@@ -16,8 +16,7 @@ namespace Board
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new CardForm());
-            Application.Run(new Board());
+            Application.Run(new BoardForm());
         }
     }
 }

@@ -12,9 +12,17 @@ namespace MyCustomControl
 {
     public partial class DescriptionUserControl : UserControl
     {
+        Board.Data.CardProp cardProp;
         public DescriptionUserControl()
         {
             InitializeComponent();
+        }
+
+        public void LoadData(Board.Data.CardProp _cardProp)
+        {
+            cardProp = new Board.Data.CardProp();
+            cardProp = _cardProp;
+            customRichTextBox.ContentText = cardProp.Card_Description;
         }
 
         private void DescriptionUserControl_Load(object sender, EventArgs e)
@@ -26,16 +34,21 @@ namespace MyCustomControl
 
         private void SetUpCustomRichTextBox()
         {
-            customRichTextBox.ContentText = "Describe your card...";
             customRichTextBox.NonFoucesedRichTextBoxColor = Color.LightGray;
             customRichTextBox.FoucesedRichTextBoxColor = Color.White;
             customRichTextBox.SetRichTextBoxMinSize(623, 50);
             customRichTextBox.SetRichTextBoxSize(623, 50);
             customRichTextBox.SetRichTextBoxMaxSize(623, 200);
             topPanel.Size = new Size(690, 35);
+            customRichTextBox.SaveMouseDown += CustomRichTextBox_SaveMouseDown;
         }
 
-        
+        private void CustomRichTextBox_SaveMouseDown(object sender, EventArgs e)
+        {
+            cardProp.Card_Description = customRichTextBox.ContentText;
+            Board.Data.DataService.UpdateCard(cardProp);
+        }
+
         private void hideButton_Click(object sender, EventArgs e)
         {
             bottomPanel.Visible = false;

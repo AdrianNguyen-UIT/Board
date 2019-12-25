@@ -50,6 +50,7 @@
             this.richTextBox.TabIndex = 0;
             this.richTextBox.Text = "Text";
             this.richTextBox.ContentsResized += new System.Windows.Forms.ContentsResizedEventHandler(this.richTextBox_ContentsResized);
+            this.richTextBox.Enter += new System.EventHandler(this.richTextBox_Enter);
             this.richTextBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.richTextBox_MouseDown);
             this.richTextBox.MouseEnter += new System.EventHandler(this.richTextBox_MouseEnter);
             // 

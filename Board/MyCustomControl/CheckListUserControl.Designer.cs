@@ -30,11 +30,13 @@
         {
             this.percentagePanel = new System.Windows.Forms.Panel();
             this.percentageNumberLabel = new System.Windows.Forms.Label();
+            this.roundedProgressBar = new MyCustomControl.RoundedProgressBar();
             this.mainPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.topPanel = new System.Windows.Forms.Panel();
             this.showButton = new MyCustomControl.RoundedButton();
             this.hideButton = new MyCustomControl.RoundedButton();
             this.checkListNameRichTextBox = new MyCustomControl.CustomRichTextBox();
+            this.checkListPictureBox = new System.Windows.Forms.PictureBox();
             this.bottomPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.itemListPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.addItemButtonPanel = new System.Windows.Forms.Panel();
@@ -45,19 +47,17 @@
             this.saveAndCancelPanel = new System.Windows.Forms.Panel();
             this.cancelButton = new MyCustomControl.RoundedButton();
             this.saveButton = new MyCustomControl.RoundedButton();
-            this.checkListPictureBox = new System.Windows.Forms.PictureBox();
-            this.roundedProgressBar = new MyCustomControl.RoundedProgressBar();
             this.deleteButton = new MyCustomControl.CircularButton();
             this.percentagePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundedProgressBar)).BeginInit();
             this.mainPanel.SuspendLayout();
             this.topPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkListPictureBox)).BeginInit();
             this.bottomPanel.SuspendLayout();
             this.addItemButtonPanel.SuspendLayout();
             this.iscPanel.SuspendLayout();
             this.itemRichTextBoxPanel.SuspendLayout();
             this.saveAndCancelPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkListPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedProgressBar)).BeginInit();
             this.SuspendLayout();
             // 
             // percentagePanel
@@ -83,6 +83,22 @@
             this.percentageNumberLabel.TabIndex = 3;
             this.percentageNumberLabel.Text = "0";
             this.percentageNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // roundedProgressBar
+            // 
+            this.roundedProgressBar.BackColor = System.Drawing.Color.LightGray;
+            this.roundedProgressBar.CheckedCount = 0;
+            this.roundedProgressBar.CompleteColor = System.Drawing.Color.LawnGreen;
+            this.roundedProgressBar.CornerRadius = 5;
+            this.roundedProgressBar.Denominator = 0;
+            this.roundedProgressBar.Location = new System.Drawing.Point(60, 0);
+            this.roundedProgressBar.Margin = new System.Windows.Forms.Padding(0);
+            this.roundedProgressBar.Name = "roundedProgressBar";
+            this.roundedProgressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.roundedProgressBar.Size = new System.Drawing.Size(618, 17);
+            this.roundedProgressBar.TabIndex = 2;
+            this.roundedProgressBar.TabStop = false;
+            this.roundedProgressBar.Value = 0D;
             // 
             // mainPanel
             // 
@@ -161,9 +177,19 @@
             this.checkListNameRichTextBox.Location = new System.Drawing.Point(60, 4);
             this.checkListNameRichTextBox.Name = "checkListNameRichTextBox";
             this.checkListNameRichTextBox.NonFoucesedRichTextBoxColor = System.Drawing.Color.Empty;
-            this.checkListNameRichTextBox.SaveButtonCommand = null;
             this.checkListNameRichTextBox.Size = new System.Drawing.Size(406, 37);
             this.checkListNameRichTextBox.TabIndex = 12;
+            // 
+            // checkListPictureBox
+            // 
+            this.checkListPictureBox.BackColor = System.Drawing.SystemColors.Control;
+            this.checkListPictureBox.Image = global::Board.Properties.Resources.CheckListIcon32;
+            this.checkListPictureBox.Location = new System.Drawing.Point(15, 4);
+            this.checkListPictureBox.Name = "checkListPictureBox";
+            this.checkListPictureBox.Size = new System.Drawing.Size(32, 32);
+            this.checkListPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.checkListPictureBox.TabIndex = 0;
+            this.checkListPictureBox.TabStop = false;
             // 
             // bottomPanel
             // 
@@ -284,7 +310,7 @@
             // 
             this.cancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.cancelButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.cancelButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.cancelButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
             this.cancelButton.FlatAppearance.BorderSize = 0;
             this.cancelButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.cancelButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
@@ -306,7 +332,7 @@
             // 
             this.saveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.saveButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.saveButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.saveButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
             this.saveButton.FlatAppearance.BorderSize = 0;
             this.saveButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.saveButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
@@ -323,33 +349,6 @@
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // checkListPictureBox
-            // 
-            this.checkListPictureBox.BackColor = System.Drawing.SystemColors.Control;
-            this.checkListPictureBox.Image = global::Board.Properties.Resources.CheckListIcon;
-            this.checkListPictureBox.Location = new System.Drawing.Point(15, 4);
-            this.checkListPictureBox.Name = "checkListPictureBox";
-            this.checkListPictureBox.Size = new System.Drawing.Size(32, 32);
-            this.checkListPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.checkListPictureBox.TabIndex = 0;
-            this.checkListPictureBox.TabStop = false;
-            // 
-            // roundedProgressBar
-            // 
-            this.roundedProgressBar.BackColor = System.Drawing.Color.LightGray;
-            this.roundedProgressBar.CheckedCount = 0;
-            this.roundedProgressBar.CompleteColor = System.Drawing.Color.LawnGreen;
-            this.roundedProgressBar.CornerRadius = 5;
-            this.roundedProgressBar.Denominator = 0;
-            this.roundedProgressBar.Location = new System.Drawing.Point(60, 0);
-            this.roundedProgressBar.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedProgressBar.Name = "roundedProgressBar";
-            this.roundedProgressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.roundedProgressBar.Size = new System.Drawing.Size(618, 17);
-            this.roundedProgressBar.TabIndex = 2;
-            this.roundedProgressBar.TabStop = false;
-            this.roundedProgressBar.Value = 0D;
             // 
             // deleteButton
             // 
@@ -384,10 +383,12 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CheckListUserControl_MouseUp);
             this.percentagePanel.ResumeLayout(false);
             this.percentagePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundedProgressBar)).EndInit();
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkListPictureBox)).EndInit();
             this.bottomPanel.ResumeLayout(false);
             this.bottomPanel.PerformLayout();
             this.addItemButtonPanel.ResumeLayout(false);
@@ -395,8 +396,6 @@
             this.iscPanel.PerformLayout();
             this.itemRichTextBoxPanel.ResumeLayout(false);
             this.saveAndCancelPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.checkListPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roundedProgressBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

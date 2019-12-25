@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{976645C5-3933-4571-8D9A-C3F386EDF7DC}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Board</RootNamespace>
     <AssemblyName>Board</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -13,6 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -52,9 +52,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Control.Draggable, Version=1.0.5049.269, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Control.Draggable.1.0.5049.269\lib\net35-Client\Control.Draggable.dll</HintPath>
-    </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
     </Reference>
@@ -72,22 +69,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Board.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Board.Designer.cs">
-      <DependentUpon>Board.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Boards.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Boards.Designer.cs">
-      <DependentUpon>Boards.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Card.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Card.Designer.cs">
+    <Compile Include="BoardForm.cs" />
+    <Compile Include="Components\Boards.cs" />
+    <Compile Include="Components\Card.cs" />
+    <Compile Include="Components\Card.Designer.cs">
       <DependentUpon>Card.cs</DependentUpon>
     </Compile>
     <Compile Include="CardForm.cs">
@@ -96,13 +81,14 @@
     <Compile Include="CardForm.Designer.cs">
       <DependentUpon>CardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataService.cs" />
-    <Compile Include="Lists.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Lists.Designer.cs">
-      <DependentUpon>Lists.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Data\BoardProp.cs" />
+    <Compile Include="Data\CardProp.cs" />
+    <Compile Include="Data\CheckListProp.cs" />
+    <Compile Include="Data\DataService.cs" />
+    <Compile Include="Data\DueDateProp.cs" />
+    <Compile Include="Data\ItemProp.cs" />
+    <Compile Include="Data\ListProp.cs" />
+    <Compile Include="Components\Lists.cs" />
     <Compile Include="MyCustomControl\CheckListItemUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -157,9 +143,6 @@
     <Compile Include="MyCustomControl\RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="Card.resx">
-      <DependentUpon>Card.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CardForm.resx">
       <DependentUpon>CardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,33 +204,37 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BoardApp.mdf">
+    <Content Include="BoardAppDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="BoardApp_log.ldf">
+    <Content Include="BoardAppDatabase_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>BoardApp.mdf</DependentUpon>
+      <DependentUpon>BoardAppDatabase.mdf</DependentUpon>
     </Content>
-    <None Include="Icons\AddIcon.png" />
+    <Content Include="Icons\AddIcon.png" />
     <Content Include="Icons\BoardIcon16.png" />
     <Content Include="Icons\BoardIcon24.png" />
     <Content Include="Icons\BoardIcon32.png" />
     <Content Include="Icons\CardIcon.png" />
-    <Content Include="Icons\CheckListIcon.png" />
+    <Content Include="Icons\CheckListIcon16.png" />
+    <Content Include="Icons\CheckListIcon24.png" />
+    <Content Include="Icons\CheckListIcon32.png" />
     <Content Include="Icons\CloseIcon32.png" />
     <Content Include="Icons\CloseIcon16.png" />
     <Content Include="Icons\CloseIcon24.png" />
     <Content Include="Icons\DeleteIcon.png" />
-    <Content Include="Icons\DescriptionIcon.png" />
-    <Content Include="Icons\DueDateIcon.png" />
+    <Content Include="Icons\DescriptionIcon16.png" />
+    <Content Include="Icons\DescriptionIcon24.png" />
+    <Content Include="Icons\DescriptionIcon32.png" />
+    <Content Include="Icons\DueDateIcon32.png" />
+    <Content Include="Icons\DueDateIcon16.png" />
+    <Content Include="Icons\DueDateIcon24.png" />
     <Content Include="Icons\ListIcon16.png" />
     <Content Include="Icons\ListIcon24.png" />
     <Content Include="Icons\ListIcon32.png" />
     <Content Include="Icons\ObservationIcon16.png" />
     <Content Include="Icons\ObservationIcon24.png" />
     <Content Include="Icons\ObservationIcon32.png" />
-    <Content Include="Icons\AddIcon32.png" />
-    <None Include="Resources\AddIcon32.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

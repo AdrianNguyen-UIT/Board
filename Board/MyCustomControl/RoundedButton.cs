@@ -42,7 +42,9 @@ namespace MyCustomControl
         {
             base.OnPaint(pevent);
             Graphics g = pevent.Graphics;
-            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            g.SmoothingMode = SmoothingMode.HighQuality;
+
 
             Brush brush = new SolidBrush(isHovering ? onHoverButtonColor : buttonColor);
             RoundedDrawing.FillRoundedRectangle(g, brush, new Rectangle(0, 0, Width, Height), roundedRadius);
