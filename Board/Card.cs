@@ -12,13 +12,22 @@ namespace Board
 {
     public partial class Card : UserControl
     {
-        private System.Windows.Forms.TextBox CardNameTB;
+        string NameCard = "Card Name";
+        string temp;
+        public System.Windows.Forms.TextBox CardNameTB;
         private MyCustomControl.RoundedButton deleteButton;
+        public System.Windows.Forms.Panel PanelCardName;
+        private MyCustomControl.RoundedButton saveButton;
+        private MyCustomControl.RoundedButton cancelButton;
         public Card()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Card));
             this.CardNameTB = new System.Windows.Forms.TextBox();
             this.deleteButton = new MyCustomControl.RoundedButton();
+            this.PanelCardName = new System.Windows.Forms.Panel();
+            this.cancelButton = new MyCustomControl.RoundedButton();
+            this.saveButton = new MyCustomControl.RoundedButton();
+            this.PanelCardName.SuspendLayout();
             this.SuspendLayout();
             // 
             // CardNameTB
@@ -26,9 +35,12 @@ namespace Board
             this.CardNameTB.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CardNameTB.Location = new System.Drawing.Point(3, 3);
             this.CardNameTB.Name = "CardNameTB";
+            this.CardNameTB.ReadOnly = true;
             this.CardNameTB.Size = new System.Drawing.Size(164, 26);
             this.CardNameTB.TabIndex = 1;
             this.CardNameTB.Text = "Card Name";
+            this.CardNameTB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CardNameTB_MouseClick);
+            this.CardNameTB.Validated += new System.EventHandler(this.CardNameTB_Validated);
             // 
             // deleteButton
             // 
@@ -51,20 +63,75 @@ namespace Board
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
+            // PanelCardName
+            // 
+            this.PanelCardName.Controls.Add(this.cancelButton);
+            this.PanelCardName.Controls.Add(this.saveButton);
+            this.PanelCardName.Controls.Add(this.CardNameTB);
+            this.PanelCardName.Location = new System.Drawing.Point(0, 3);
+            this.PanelCardName.Name = "PanelCardName";
+            this.PanelCardName.Size = new System.Drawing.Size(167, 31);
+            this.PanelCardName.TabIndex = 8;
+            this.PanelCardName.Validated += new System.EventHandler(this.PanelCardName_Validated);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.cancelButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.cancelButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.cancelButton.FlatAppearance.BorderSize = 0;
+            this.cancelButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.cancelButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.Location = new System.Drawing.Point(80, 32);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(1);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.OnHoverButtonColor = System.Drawing.Color.Red;
+            this.cancelButton.RoundedRadius = 10;
+            this.cancelButton.Size = new System.Drawing.Size(71, 25);
+            this.cancelButton.TabIndex = 14;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.saveButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.saveButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.saveButton.FlatAppearance.BorderSize = 0;
+            this.saveButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.saveButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.ForeColor = System.Drawing.Color.White;
+            this.saveButton.Location = new System.Drawing.Point(13, 31);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(1);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.saveButton.RoundedRadius = 10;
+            this.saveButton.Size = new System.Drawing.Size(52, 26);
+            this.saveButton.TabIndex = 13;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
             // Card
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.PanelCardName);
             this.Controls.Add(this.deleteButton);
-            this.Controls.Add(this.CardNameTB);
             this.Name = "Card";
             this.Size = new System.Drawing.Size(170, 67);
             this.DoubleClick += new System.EventHandler(this.Card_DoubleClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Card_MouseDown);
+            this.PanelCardName.ResumeLayout(false);
+            this.PanelCardName.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
-
 
         }
         private event EventHandler deleted;
@@ -90,6 +157,40 @@ namespace Board
         private void Card_DoubleClick(object sender, EventArgs e)
         {
             MessageBox.Show("Card Form");
+        }
+
+        private void CardNameTB_MouseClick(object sender, MouseEventArgs e)
+        {
+            PanelCardName.Size = new Size(167, 58);
+            CardNameTB.ReadOnly = false;
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            PanelCardName.Size = new Size(167, 31);
+            NameCard = temp;
+            CardNameTB.Text = NameCard;
+            CardNameTB.ReadOnly = true;
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            PanelCardName.Size = new Size(167, 31);
+            CardNameTB.Text = NameCard;
+            CardNameTB.ReadOnly = true;
+        }
+
+        private void CardNameTB_Validated(object sender, EventArgs e)
+        {
+            temp = CardNameTB.Text;
+            CardNameTB.Text = NameCard;
+            CardNameTB.ReadOnly = true;
+        }
+
+        private void PanelCardName_Validated(object sender, EventArgs e)
+        {
+            CardNameTB.ReadOnly = true;
+            PanelCardName.Size = new Size(167, 31);
         }
     }
 }

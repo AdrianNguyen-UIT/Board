@@ -114,9 +114,9 @@ namespace Board
             this.Name = "Boards";
             this.Size = new System.Drawing.Size(175, 71);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Boards_MouseDown);
+            this.Validated += new System.EventHandler(this.Boards_Validated);
             this.ResumeLayout(false);
             this.PerformLayout();
-
 
         }
 
@@ -168,6 +168,13 @@ namespace Board
                 this.DoDragDrop(dragData, DragDropEffects.Move);
             }
         }
+
+        private void Boards_Validated(object sender, EventArgs e)
+        {
+            BoardName.ReadOnly = true;
+            this.Size = new Size(175, 30);
+        }
     }
 }
+
 
