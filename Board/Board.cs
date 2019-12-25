@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Board
 {
-    public partial class MainForm : Form
+    public partial class Board : Form
     {
         List<Boards> listBoards = new List<Boards>();
         FlowLayoutPanel FlowBoardPanel = new FlowLayoutPanel();
@@ -22,14 +22,14 @@ namespace Board
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelBoardList;
         private MyCustomControl.RoundedButton ButtonAddBoard;
         private MyCustomControl.RoundedButton ButtonAddList;
-        public MainForm()
+        public Board()
         {
             this.BoardListPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanelBoardList = new System.Windows.Forms.FlowLayoutPanel();
+            this.ButtonAddBoard = new MyCustomControl.RoundedButton();
             this.LBBoard = new System.Windows.Forms.Label();
             this.MinimizeButton = new System.Windows.Forms.Button();
             this.ListListPanel = new System.Windows.Forms.Panel();
-            this.ButtonAddBoard = new MyCustomControl.RoundedButton();
             this.ButtonAddList = new MyCustomControl.RoundedButton();
             this.BoardListPanel.SuspendLayout();
             this.flowLayoutPanelBoardList.SuspendLayout();
@@ -52,6 +52,7 @@ namespace Board
             // 
             this.flowLayoutPanelBoardList.AllowDrop = true;
             this.flowLayoutPanelBoardList.AutoScroll = true;
+            this.flowLayoutPanelBoardList.BackColor = System.Drawing.SystemColors.ControlLight;
             this.flowLayoutPanelBoardList.Controls.Add(this.ButtonAddBoard);
             this.flowLayoutPanelBoardList.Location = new System.Drawing.Point(5, 42);
             this.flowLayoutPanelBoardList.Name = "flowLayoutPanelBoardList";
@@ -59,41 +60,6 @@ namespace Board
             this.flowLayoutPanelBoardList.TabIndex = 3;
             this.flowLayoutPanelBoardList.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanelBoardList_DragDrop);
             this.flowLayoutPanelBoardList.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanelBoardList_DragEnter);
-            // 
-            // LBBoard
-            // 
-            this.LBBoard.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.LBBoard.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBBoard.Location = new System.Drawing.Point(6, 7);
-            this.LBBoard.Name = "LBBoard";
-            this.LBBoard.Size = new System.Drawing.Size(139, 37);
-            this.LBBoard.TabIndex = 0;
-            this.LBBoard.Text = "Board";
-            this.LBBoard.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // MinimizeButton
-            // 
-            this.MinimizeButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinimizeButton.Location = new System.Drawing.Point(151, 7);
-            this.MinimizeButton.Name = "MinimizeButton";
-            this.MinimizeButton.Size = new System.Drawing.Size(37, 33);
-            this.MinimizeButton.TabIndex = 3;
-            this.MinimizeButton.Text = "◁";
-            this.MinimizeButton.UseVisualStyleBackColor = true;
-            this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
-            // 
-            // ListListPanel
-            // 
-            this.ListListPanel.AllowDrop = true;
-            this.ListListPanel.AutoScroll = true;
-            this.ListListPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.ListListPanel.Controls.Add(this.ButtonAddList);
-            this.ListListPanel.Location = new System.Drawing.Point(220, 0);
-            this.ListListPanel.Name = "ListListPanel";
-            this.ListListPanel.Size = new System.Drawing.Size(1362, 859);
-            this.ListListPanel.TabIndex = 4;
-            this.ListListPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.ListListPanel_DragDrop);
-            this.ListListPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.ListListPanel_DragEnter);
             // 
             // ButtonAddBoard
             // 
@@ -116,6 +82,41 @@ namespace Board
             this.ButtonAddBoard.UseVisualStyleBackColor = false;
             this.ButtonAddBoard.Click += new System.EventHandler(this.ButtonAddBoard_Click);
             // 
+            // LBBoard
+            // 
+            this.LBBoard.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.LBBoard.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBBoard.Location = new System.Drawing.Point(6, 7);
+            this.LBBoard.Name = "LBBoard";
+            this.LBBoard.Size = new System.Drawing.Size(159, 32);
+            this.LBBoard.TabIndex = 0;
+            this.LBBoard.Text = "Board";
+            this.LBBoard.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MinimizeButton
+            // 
+            this.MinimizeButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimizeButton.Location = new System.Drawing.Point(171, 7);
+            this.MinimizeButton.Name = "MinimizeButton";
+            this.MinimizeButton.Size = new System.Drawing.Size(37, 33);
+            this.MinimizeButton.TabIndex = 3;
+            this.MinimizeButton.Text = "◁";
+            this.MinimizeButton.UseVisualStyleBackColor = true;
+            this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
+            // 
+            // ListListPanel
+            // 
+            this.ListListPanel.AllowDrop = true;
+            this.ListListPanel.AutoScroll = true;
+            this.ListListPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.ListListPanel.Controls.Add(this.ButtonAddList);
+            this.ListListPanel.Location = new System.Drawing.Point(220, 0);
+            this.ListListPanel.Name = "ListListPanel";
+            this.ListListPanel.Size = new System.Drawing.Size(1362, 859);
+            this.ListListPanel.TabIndex = 4;
+            this.ListListPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.ListListPanel_DragDrop);
+            this.ListListPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.ListListPanel_DragEnter);
+            // 
             // ButtonAddList
             // 
             this.ButtonAddList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -137,20 +138,23 @@ namespace Board
             this.ButtonAddList.UseVisualStyleBackColor = false;
             this.ButtonAddList.Click += new System.EventHandler(this.ButtonAddList_Click);
             // 
-            // MainForm
+            // Board
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1584, 861);
             this.Controls.Add(this.ListListPanel);
             this.Controls.Add(this.BoardListPanel);
-            this.Name = "mainForm";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "Board";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainForm";
+            this.Text = "Board";
             this.BoardListPanel.ResumeLayout(false);
             this.flowLayoutPanelBoardList.ResumeLayout(false);
             this.ListListPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+
             FlowBoardPanel.Size = new Size(60, 857);
             FlowBoardPanel.Location = new Point(0, 0);
             FlowBoardPanel.AutoScroll = true;
@@ -160,7 +164,9 @@ namespace Board
         private void ButtonAddBoard_Click(object sender, EventArgs e)
         {
             Boards NewBoard = new Boards();
-            NewBoard.Size = new Size(175, 30);
+            NewBoard.Size = new Size(175, 42);
+            NewBoard.NameBoard = "Board (" + (listBoards.Count + 1) + ")";
+            NewBoard.BoardName.Text = NewBoard.NameBoard;
             NewBoard.DoubleClick += NewBoard_Click;
             NewBoard.BoardName.Click += BoardName_Click;
             NewBoard.Deleted += NewBoard_Deleted;
@@ -174,20 +180,21 @@ namespace Board
             for (int i = 0; i < listBoards.Count; i++)
             {
                 listBoards[i].BackColor = Color.White;
-                listBoards[i].Size = new Size(175, 30);
+                listBoards[i].Size = new Size(175, 42);
             }
             (sender as TextBox).ReadOnly = false;
             (((sender as TextBox).Parent) as Boards).BackColor = Color.LightBlue;
-            (((sender as TextBox).Parent) as Boards).Size = new Size(175, 71);
+            (((sender as TextBox).Parent) as Boards).Size = new Size(175, 93);
             ButtonAddList.Enabled = true;
             ListListPanel.Controls.Clear();
-            ButtonAddList.Location = new Point(13 + (((sender as TextBox).Parent) as Boards).list.Count * 205, 10);
+            ButtonAddList.Location = new Point(13 + (((sender as TextBox).Parent) as Boards).list.Count * 300, 10);
             ListListPanel.Controls.Add(ButtonAddList);
             for (int i = 0; i < (((sender as TextBox).Parent) as Boards).list.Count; i++)
             {
-                (((sender as TextBox).Parent) as Boards).list[i].Location = new Point(13 + 205 * i, 0);
+                (((sender as TextBox).Parent) as Boards).list[i].Location = new Point(13 + 300 * i, 0);
                 ListListPanel.Controls.Add((((sender as TextBox).Parent) as Boards).list[i]);
             }
+            LBBoard.Text = (sender as TextBox).Text;
         }
 
         private void NewBoard_Deleted(object sender, EventArgs e)
@@ -203,18 +210,19 @@ namespace Board
             for (int i = 0; i < listBoards.Count; i++)
             {
                 listBoards[i].BackColor = Color.White;
-                listBoards[i].Size = new Size(175, 30);
+                listBoards[i].Size = new Size(175, 42);
             }
             (sender as Boards).BackColor = Color.LightBlue;
             ButtonAddList.Enabled = true;
             ListListPanel.Controls.Clear();
-            ButtonAddList.Location = new Point(13 + (sender as Boards).list.Count * 205, 10);
+            ButtonAddList.Location = new Point(13 + (sender as Boards).list.Count * 300, 10);
             ListListPanel.Controls.Add(ButtonAddList);
             for (int i = 0; i < (sender as Boards).list.Count; i++)
             {
-                (sender as Boards).list[i].Location = new Point(13 + 205 * i, 0);
+                (sender as Boards).list[i].Location = new Point(13 + 300 * i, 0);
                 ListListPanel.Controls.Add((sender as Boards).list[i]);
             }
+            LBBoard.Text = (sender as Boards).BoardName.Text;
         }
         #endregion
         #region Minimize button
@@ -226,7 +234,7 @@ namespace Board
                 this.Controls.Remove(FlowBoardPanel);
                 this.Controls.Add(BoardListPanel);
                 MinimizeButton.Text = "◁";
-                MinimizeButton.Location = new Point(151, 7);
+                MinimizeButton.Location = new Point(171, 7);
                 BoardListPanel.Controls.Add(MinimizeButton);
                 ListListPanel.Location = new Point(220, 0);
                 ListListPanel.Size = new Size(1362, 859);
@@ -243,7 +251,7 @@ namespace Board
                 for (int i = 0; i < listBoards.Count; i++)
                 {
                     Button newButton = new Button();
-                    newButton.Text = i + "";
+                    newButton.Text = (i+1) + "";
                     newButton.BackColor = Color.White;
                     if (listBoards[i].BackColor == Color.LightBlue)
                         newButton.BackColor = Color.LightBlue;
@@ -263,19 +271,20 @@ namespace Board
             }
             (sender as Button).BackColor = Color.LightBlue;
             ListListPanel.Controls.Clear();
-            int Locate = int.Parse((sender as Button).Text);
+            int Locate = int.Parse((sender as Button).Text) - 1;
             ButtonAddList.Enabled = true;
             for (int i = 0; i < listBoards.Count; i++)
             {
                 listBoards[i].BackColor = Color.White;
             }
             listBoards[Locate].BackColor = Color.LightBlue;
+            LBBoard.Text = listBoards[Locate].BoardName.Text;
             ListListPanel.Controls.Clear();
-            ButtonAddList.Location = new Point(13 + listBoards[Locate].list.Count * 205, 10);
+            ButtonAddList.Location = new Point(13 + listBoards[Locate].list.Count * 300, 10);
             ListListPanel.Controls.Add(ButtonAddList);
             for (int i = 0; i < (listBoards[Locate]).list.Count; i++)
             {
-                listBoards[Locate].list[i].Location = new Point(13 + 205 * i, 0);
+                listBoards[Locate].list[i].Location = new Point(13 + 300 * i, 0);
                 ListListPanel.Controls.Add((listBoards[Locate]).list[i]);
             }
         }
@@ -292,14 +301,15 @@ namespace Board
                     break;
                 }
             }
-            ButtonAddList.Location = new Point(ButtonAddList.Location.X + 205, ButtonAddList.Location.Y);
+            ButtonAddList.Location = new Point(ButtonAddList.Location.X + 300, ButtonAddList.Location.Y);
             Lists NewList = new Lists();
-            NewList.Location = new Point(ButtonAddList.Location.X - 205, 0);
+            NewList.TextboxListName.Text = "List (" + (listBoards[Locate].list.Count + 1) + ")";
+            NewList.NameLists = NewList.TextboxListName.Text;
+            NewList.Location = new Point(ButtonAddList.Location.X - 300, 0);
             NewList.Deleted += NewList_Deleted;
-            ListListPanel.Controls.Add(NewList);
             listBoards[Locate].list.Add(NewList);
+            ListListPanel.Controls.Add(NewList);
         }
-
         private void NewList_Deleted(object sender, EventArgs e)
         {
             Lists uc = sender as Lists;
@@ -317,9 +327,9 @@ namespace Board
             ListListPanel.Controls.Remove(uc);
             for (int i = listLocate; i < (listBoards[Locate]).list.Count; i++)
             {
-                listBoards[Locate].list[i].Location = new Point(listBoards[Locate].list[i].Location.X - 205, 0);
+                listBoards[Locate].list[i].Location = new Point(listBoards[Locate].list[i].Location.X - 300, 0);
             }
-            ButtonAddList.Location = new Point(ButtonAddList.Location.X - 205, 10);
+            ButtonAddList.Location = new Point(ButtonAddList.Location.X - 300, 10);
         }
         #endregion
         #region Allow to drag and drop Board in BoardList

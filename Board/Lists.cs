@@ -12,6 +12,10 @@ namespace Board
 {
     public partial class Lists : UserControl
     {
+        bool IsObserve = false;
+        public string NameLists = "List Name";
+        string temp;
+        List<Card> listCard = new List<Card>();
         public System.Windows.Forms.TextBox TextboxListName;
         private System.Windows.Forms.FlowLayoutPanel CardListPanel;
         private MyCustomControl.CircularButton DeleteListButton;
@@ -19,9 +23,7 @@ namespace Board
         private MyCustomControl.RoundedButton saveButton;
         private MyCustomControl.RoundedButton cancelButton;
         private System.Windows.Forms.Panel PanelSetting;
-        string NameLists = "List Name";
-        string temp;
-        List<Card> listCard = new List<Card>();
+        private System.Windows.Forms.PictureBox pictureBox1;
         private event EventHandler deleted;
         public event EventHandler Deleted
         {
@@ -29,25 +31,28 @@ namespace Board
             remove { deleted -= value; }
         }
         public Lists()
+
         {
             this.TextboxListName = new System.Windows.Forms.TextBox();
             this.CardListPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.ButtonAddCard = new MyCustomControl.RoundedButton();
-            this.saveButton = new MyCustomControl.RoundedButton();
-            this.cancelButton = new MyCustomControl.RoundedButton();
-            this.DeleteListButton = new MyCustomControl.CircularButton();
             this.PanelSetting = new System.Windows.Forms.Panel();
+            this.cancelButton = new MyCustomControl.RoundedButton();
+            this.saveButton = new MyCustomControl.RoundedButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.DeleteListButton = new MyCustomControl.CircularButton();
             this.CardListPanel.SuspendLayout();
             this.PanelSetting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // TextboxListName
             // 
-            this.TextboxListName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextboxListName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextboxListName.Location = new System.Drawing.Point(3, 3);
             this.TextboxListName.Name = "TextboxListName";
             this.TextboxListName.ReadOnly = true;
-            this.TextboxListName.Size = new System.Drawing.Size(125, 26);
+            this.TextboxListName.Size = new System.Drawing.Size(134, 29);
             this.TextboxListName.TabIndex = 0;
             this.TextboxListName.Text = "List Name";
             this.TextboxListName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -59,9 +64,9 @@ namespace Board
             this.CardListPanel.AllowDrop = true;
             this.CardListPanel.AutoScroll = true;
             this.CardListPanel.Controls.Add(this.ButtonAddCard);
-            this.CardListPanel.Location = new System.Drawing.Point(0, 38);
+            this.CardListPanel.Location = new System.Drawing.Point(0, 36);
             this.CardListPanel.Name = "CardListPanel";
-            this.CardListPanel.Size = new System.Drawing.Size(197, 789);
+            this.CardListPanel.Size = new System.Drawing.Size(263, 731);
             this.CardListPanel.TabIndex = 4;
             this.CardListPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.CardListPanel_DragDrop);
             this.CardListPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.CardListPanel_DragEnter);
@@ -82,32 +87,21 @@ namespace Board
             this.ButtonAddCard.Name = "ButtonAddCard";
             this.ButtonAddCard.OnHoverButtonColor = System.Drawing.Color.Transparent;
             this.ButtonAddCard.RoundedRadius = 2;
-            this.ButtonAddCard.Size = new System.Drawing.Size(170, 29);
+            this.ButtonAddCard.Size = new System.Drawing.Size(230, 29);
             this.ButtonAddCard.TabIndex = 9;
             this.ButtonAddCard.UseVisualStyleBackColor = false;
             this.ButtonAddCard.Click += new System.EventHandler(this.ButtonAddBoard_Click);
             // 
-            // saveButton
+            // PanelSetting
             // 
-            this.saveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.saveButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.saveButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.saveButton.FlatAppearance.BorderSize = 0;
-            this.saveButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            this.saveButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(3, 33);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(1);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.saveButton.RoundedRadius = 10;
-            this.saveButton.Size = new System.Drawing.Size(84, 28);
-            this.saveButton.TabIndex = 13;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.PanelSetting.Controls.Add(this.TextboxListName);
+            this.PanelSetting.Controls.Add(this.cancelButton);
+            this.PanelSetting.Controls.Add(this.saveButton);
+            this.PanelSetting.Location = new System.Drawing.Point(3, 3);
+            this.PanelSetting.Name = "PanelSetting";
+            this.PanelSetting.Size = new System.Drawing.Size(142, 32);
+            this.PanelSetting.TabIndex = 10;
+            this.PanelSetting.Validated += new System.EventHandler(this.PanelSetting_Validated);
             // 
             // cancelButton
             // 
@@ -120,43 +114,64 @@ namespace Board
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(91, 33);
+            this.cancelButton.Location = new System.Drawing.Point(60, 36);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(1);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.OnHoverButtonColor = System.Drawing.Color.Red;
             this.cancelButton.RoundedRadius = 10;
-            this.cancelButton.Size = new System.Drawing.Size(79, 28);
+            this.cancelButton.Size = new System.Drawing.Size(77, 28);
             this.cancelButton.TabIndex = 14;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // saveButton
+            // 
+            this.saveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.saveButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.saveButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.saveButton.FlatAppearance.BorderSize = 0;
+            this.saveButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.saveButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.ForeColor = System.Drawing.Color.White;
+            this.saveButton.Location = new System.Drawing.Point(3, 36);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(1);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.saveButton.RoundedRadius = 10;
+            this.saveButton.Size = new System.Drawing.Size(55, 28);
+            this.saveButton.TabIndex = 13;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(146, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(27, 28);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // DeleteListButton
             // 
             this.DeleteListButton.BackColor = System.Drawing.Color.Transparent;
-            this.DeleteListButton.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
+            this.DeleteListButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.DeleteListButton.FlatAppearance.BorderSize = 0;
+            this.DeleteListButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
             this.DeleteListButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
             this.DeleteListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteListButton.Image = global::Board.Properties.Resources.CloseIcon16;
-            this.DeleteListButton.Location = new System.Drawing.Point(134, 3);
+            this.DeleteListButton.Location = new System.Drawing.Point(229, 4);
+            this.DeleteListButton.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.DeleteListButton.Name = "DeleteListButton";
-            this.DeleteListButton.Size = new System.Drawing.Size(46, 26);
+            this.DeleteListButton.Size = new System.Drawing.Size(34, 26);
             this.DeleteListButton.TabIndex = 5;
-            this.DeleteListButton.UseVisualStyleBackColor = false;
+            this.DeleteListButton.UseVisualStyleBackColor = true;
             this.DeleteListButton.Click += new System.EventHandler(this.DeleteListButton_Click_1);
-            // 
-            // PanelSetting
-            // 
-            this.PanelSetting.Controls.Add(this.TextboxListName);
-            this.PanelSetting.Controls.Add(this.DeleteListButton);
-            this.PanelSetting.Controls.Add(this.cancelButton);
-            this.PanelSetting.Controls.Add(this.saveButton);
-            this.PanelSetting.Location = new System.Drawing.Point(3, 3);
-            this.PanelSetting.Name = "PanelSetting";
-            this.PanelSetting.Size = new System.Drawing.Size(180, 33);
-            this.PanelSetting.TabIndex = 10;
-            this.PanelSetting.Validated += new System.EventHandler(this.PanelSetting_Validated);
             // 
             // Lists
             // 
@@ -165,21 +180,28 @@ namespace Board
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.PanelSetting);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.DeleteListButton);
             this.Controls.Add(this.CardListPanel);
             this.Name = "Lists";
-            this.Size = new System.Drawing.Size(201, 830);
+            this.Size = new System.Drawing.Size(266, 830);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Lists_MouseDown);
             this.CardListPanel.ResumeLayout(false);
             this.PanelSetting.ResumeLayout(false);
             this.PanelSetting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         private void ButtonAddBoard_Click(object sender, EventArgs e)
         {
             Card card = new Card();
-            listCard.Add(card);
             card.Deleted += Card_Deleted;
+            card.NameCard = "Card (" + (listCard.Count + 1) + ")";
+            card.CardNameTB.Text = card.NameCard;
+            listCard.Add(card);
+            if (IsObserve == true) card.BackColor = Color.Yellow;
             CardListPanel.Controls.Remove(ButtonAddCard);
             CardListPanel.Controls.Add(card);
             CardListPanel.Controls.Add(ButtonAddCard);
@@ -222,6 +244,10 @@ namespace Board
             }
             else
             {
+                if (IsObserve == true)
+                    element.BackColor = Color.Yellow;
+                else
+                    element.BackColor = Color.White;
                 if (item == null)
                 {
 
@@ -288,18 +314,18 @@ namespace Board
             NameLists = temp;
             TextboxListName.Text = NameLists;
             TextboxListName.ReadOnly = true;
-            PanelSetting.Size = new Size(183, 33);
-            CardListPanel.Location = new Point(0, 38);
-            CardListPanel.Size = new Size(197, 789);
+            PanelSetting.Size = new Size(155, 32);
+            CardListPanel.Location = new Point(0, 36);
+            CardListPanel.Size = new Size(263, 791);
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             TextboxListName.Text = NameLists;
             TextboxListName.ReadOnly = true;
-            PanelSetting.Size = new Size(183, 33);
-            CardListPanel.Location = new Point(0, 38);
-            CardListPanel.Size = new Size(197, 789);
+            PanelSetting.Size = new Size(155, 32);
+            CardListPanel.Location = new Point(0, 36);
+            CardListPanel.Size = new Size(263, 791);
         }
 
         private void TextboxListName_Validated(object sender, EventArgs e)
@@ -312,17 +338,55 @@ namespace Board
         private void TextboxListName_Click(object sender, EventArgs e)
         {
             TextboxListName.ReadOnly = false;
-            PanelSetting.Size = new Size(183, 60);
-            CardListPanel.Location = new Point(0, 65);
-            CardListPanel.Size = new Size(197, 762);
+            PanelSetting.Size = new Size(155, 66);
+            CardListPanel.Location = new Point(0, 71);
+            CardListPanel.Size = new Size(263, 756);
         }
 
         private void PanelSetting_Validated(object sender, EventArgs e)
         {
             TextboxListName.ReadOnly = true;
-            PanelSetting.Size = new Size(183, 33);
-            CardListPanel.Location = new Point(0, 38);
-            CardListPanel.Size = new Size(197, 789);
+            PanelSetting.Size = new Size(155, 32);
+            CardListPanel.Location = new Point(0, 36);
+            CardListPanel.Size = new Size(263, 791);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (IsObserve == false)
+            {
+                IsObserve = true;
+                for (int i = 0; i < listCard.Count; i++)
+                {
+                    listCard[i].BackColor = Color.Yellow;
+                }
+            }
+            else
+            {
+                IsObserve = false;
+                for (int i = 0; i < listCard.Count; i++)
+                {
+                    listCard[i].BackColor = Color.White;
+                }
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            const string message = "Do you wish to delete this";
+            const string caption = "Alert";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Warning);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                if (deleted != null)
+                    deleted(this, new EventArgs());
+            }
         }
     }
 }

@@ -72,6 +72,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Board.Designer.cs">
+      <DependentUpon>Board.cs</DependentUpon>
+    </Compile>
     <Compile Include="Boards.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,12 +102,6 @@
     </Compile>
     <Compile Include="Lists.Designer.cs">
       <DependentUpon>Lists.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MyCustomControl\CheckListItemUserControl.cs">
       <SubType>UserControl</SubType>

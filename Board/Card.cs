@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Board
 {
-    public partial class Card : UserControl
+    public partial class Card: UserControl
     {
-        string NameCard = "Card Name";
+        public string NameCard = "Card Name";
         string temp;
         public System.Windows.Forms.TextBox CardNameTB;
         private MyCustomControl.RoundedButton deleteButton;
@@ -23,45 +23,24 @@ namespace Board
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Card));
             this.CardNameTB = new System.Windows.Forms.TextBox();
-            this.deleteButton = new MyCustomControl.RoundedButton();
             this.PanelCardName = new System.Windows.Forms.Panel();
             this.cancelButton = new MyCustomControl.RoundedButton();
             this.saveButton = new MyCustomControl.RoundedButton();
+            this.deleteButton = new MyCustomControl.RoundedButton();
             this.PanelCardName.SuspendLayout();
             this.SuspendLayout();
             // 
             // CardNameTB
             // 
-            this.CardNameTB.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CardNameTB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CardNameTB.Location = new System.Drawing.Point(3, 3);
             this.CardNameTB.Name = "CardNameTB";
             this.CardNameTB.ReadOnly = true;
-            this.CardNameTB.Size = new System.Drawing.Size(164, 26);
+            this.CardNameTB.Size = new System.Drawing.Size(164, 29);
             this.CardNameTB.TabIndex = 1;
             this.CardNameTB.Text = "Card Name";
             this.CardNameTB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CardNameTB_MouseClick);
             this.CardNameTB.Validated += new System.EventHandler(this.CardNameTB_Validated);
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.deleteButton.ButtonColor = System.Drawing.Color.Transparent;
-            this.deleteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.deleteButton.FlatAppearance.BorderSize = 0;
-            this.deleteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
-            this.deleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
-            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteButton.Image = global::Board.Properties.Resources.DeleteIcon;
-            this.deleteButton.Location = new System.Drawing.Point(108, 35);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.OnHoverButtonColor = System.Drawing.Color.Transparent;
-            this.deleteButton.RoundedRadius = 2;
-            this.deleteButton.Size = new System.Drawing.Size(59, 26);
-            this.deleteButton.TabIndex = 7;
-            this.deleteButton.UseVisualStyleBackColor = false;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // PanelCardName
             // 
@@ -70,7 +49,7 @@ namespace Board
             this.PanelCardName.Controls.Add(this.CardNameTB);
             this.PanelCardName.Location = new System.Drawing.Point(0, 3);
             this.PanelCardName.Name = "PanelCardName";
-            this.PanelCardName.Size = new System.Drawing.Size(167, 31);
+            this.PanelCardName.Size = new System.Drawing.Size(176, 32);
             this.PanelCardName.TabIndex = 8;
             this.PanelCardName.Validated += new System.EventHandler(this.PanelCardName_Validated);
             // 
@@ -107,26 +86,47 @@ namespace Board
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(13, 31);
+            this.saveButton.Location = new System.Drawing.Point(13, 32);
             this.saveButton.Margin = new System.Windows.Forms.Padding(1);
             this.saveButton.Name = "saveButton";
             this.saveButton.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.saveButton.RoundedRadius = 10;
-            this.saveButton.Size = new System.Drawing.Size(52, 26);
+            this.saveButton.Size = new System.Drawing.Size(52, 25);
             this.saveButton.TabIndex = 13;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.deleteButton.ButtonColor = System.Drawing.Color.Transparent;
+            this.deleteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.deleteButton.FlatAppearance.BorderSize = 0;
+            this.deleteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.deleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.Image = global::Board.Properties.Resources.DeleteIcon;
+            this.deleteButton.Location = new System.Drawing.Point(184, 6);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.OnHoverButtonColor = System.Drawing.Color.Transparent;
+            this.deleteButton.RoundedRadius = 2;
+            this.deleteButton.Size = new System.Drawing.Size(43, 29);
+            this.deleteButton.TabIndex = 7;
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // Card
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.PanelCardName);
             this.Controls.Add(this.deleteButton);
             this.Name = "Card";
-            this.Size = new System.Drawing.Size(170, 67);
+            this.Size = new System.Drawing.Size(230, 67);
             this.DoubleClick += new System.EventHandler(this.Card_DoubleClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Card_MouseDown);
             this.PanelCardName.ResumeLayout(false);
@@ -161,13 +161,13 @@ namespace Board
 
         private void CardNameTB_MouseClick(object sender, MouseEventArgs e)
         {
-            PanelCardName.Size = new Size(167, 58);
+            PanelCardName.Size = new Size(176, 61);
             CardNameTB.ReadOnly = false;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            PanelCardName.Size = new Size(167, 31);
+            PanelCardName.Size = new Size(176, 32);
             NameCard = temp;
             CardNameTB.Text = NameCard;
             CardNameTB.ReadOnly = true;
@@ -175,7 +175,7 @@ namespace Board
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            PanelCardName.Size = new Size(167, 31);
+            PanelCardName.Size = new Size(176, 32);
             CardNameTB.Text = NameCard;
             CardNameTB.ReadOnly = true;
         }
@@ -190,7 +190,8 @@ namespace Board
         private void PanelCardName_Validated(object sender, EventArgs e)
         {
             CardNameTB.ReadOnly = true;
-            PanelCardName.Size = new Size(167, 31);
+            PanelCardName.Size = new Size(176, 32);
         }
     }
+
 }
