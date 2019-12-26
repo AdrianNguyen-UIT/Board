@@ -3,6 +3,9 @@
 ## Description
 Ứng dụng Board hỗ trợ việc lên thời gian công việc hợp lí theo cấu trúc:
  Bảng->Danh Sách->Công việc
+ 
+## Installer
+[https://drive.google.com/file/d/1nLvjQQiNgX5AOP29Ub-lnI_LxIwXXzYn/view?usp=sharing]
 ## HomePage:
 HomePage bao gồm:
 ```
