@@ -381,6 +381,8 @@ namespace Board
             NewList.NameLists = NewList.TextboxListName.Text;
             NewList.Location = new Point(ButtonAddList.Location.X - 300, 0);
             NewList.Deleted += NewList_Deleted;
+            NewList.SecondFormShowed += NewList_SecondFormShowed;
+            NewList.SecondFormClosed += NewList_SecondFormClosed;
             listBoards[Locate].list.Add(NewList);
             ListListPanel.Controls.Add(NewList);
 
